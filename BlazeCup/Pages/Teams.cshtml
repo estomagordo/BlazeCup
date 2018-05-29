@@ -1,0 +1,26 @@
+﻿@page "/teams"
+@using Models
+@inject HttpClient Http
+
+<h2>This is a neat listing of all the teams!</h2>
+
+@if (teams == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @foreach (var team in teams)
+    {
+        <span>@team.Name <img src="@team.FlagUrl" /></span>
+    }
+}
+
+@functions {
+    Team[] teams;
+
+    protected override async Task OnInitAsync()
+    {
+        teams = await Http.GetJsonAsync<Team[]>("/sample-data/teams.json");
+    }
+}

@@ -22,7 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Teams.cshtml" />
     <None Include="Pages\Todo.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\Teams.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Teams.cshtml" />
   </ItemGroup>
 
 </Project>
