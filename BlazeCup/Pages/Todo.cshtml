@@ -1,4 +1,5 @@
 ﻿@page  "/todo"
+@using Models
 
 <h1>Todo (@todos.Where(todo => !todo.IsDone).Count())</h1>
 

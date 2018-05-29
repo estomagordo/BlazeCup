@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BlazeCup
+namespace BlazeCup.Models
 {
     public class TodoItem
     {
