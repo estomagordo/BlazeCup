@@ -1,0 +1,74 @@
+﻿[
+  {
+    "Name": "A",
+    "Teams": [
+      "Egypt",
+      "Russia",
+      "Saudi Arabia",
+      "Uruguay"
+    ]
+  },
+  {
+    "Name": "B",
+    "Teams": [
+      "Iran",
+      "Morocco",
+      "Portugal",
+      "Spain"
+    ]
+  },
+  {
+    "Name": "C",
+    "Teams": [
+      "Australia",
+      "Denmark",
+      "France",
+      "Peru"
+    ]
+  },
+  {
+    "Name": "D",
+    "Teams": [
+      "Argentina",
+      "Croatia",
+      "Iceland",
+      "Nigeria"
+    ]
+  },
+  {
+    "Name": "E",
+    "Teams": [
+      "Brazil",
+      "Costa Rica",
+      "Serbia",
+      "Switzerland"
+    ]
+  },
+  {
+    "Name": "F",
+    "Teams": [
+      "Germany",
+      "South Korea",
+      "Mexico",
+      "Sweden"
+    ]
+  },
+  {
+    "Name": "G",
+    "Teams": [
+      "Belgium",
+      "England",
+      "Panama",
+      "Tunisia"
+    ]
+  },
+  {
+    "Name": "H",
+    "Teams": [
+      "Colombia",
+      "Japan",
+      "Poland",
+      "Senegal"
+    ]
+  }
+]
