@@ -12,7 +12,10 @@ else
 {
     @foreach (var team in teams)
     {
-        <span>@team.Name <img src="@team.FlagUrl" /></span>
+        <div class="row">
+            <div class="col-sm-8">@team.Name</div>
+            <div class="col-sm-4"><img src="@team.FlagUrl" /></div>
+        </div>
     }
 }
 
