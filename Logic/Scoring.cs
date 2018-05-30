@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BlazeCup
+namespace BlazeCup.Logic
 {
     public class Scoring
     {
@@ -21,7 +21,7 @@ namespace BlazeCup
         public static int ScoreGame(int expectedHome, int expectedAway, int actualHome, int actualAway)
         {
             var score = 0;
-            
+
             if (expectedHome == actualHome)
             {
                 score += _correctGoals;
@@ -57,27 +57,27 @@ namespace BlazeCup
             return score;
         }
 
-        public int ScoreSecondRound(IList<string> guesses, IList<string> actual)
+        public static int ScoreSecondRound(IList<string> guesses, IList<string> actual)
         {
             return guesses.Where(g => actual.Contains(g)).Count() * _correctSecondRound;
         }
 
-        public int ScoreQuarterFinal(IList<string> guesses, IList<string> actual)
+        public static int ScoreQuarterFinal(IList<string> guesses, IList<string> actual)
         {
             return guesses.Where(g => actual.Contains(g)).Count() * _correctQuarterFinal;
         }
 
-        public int ScoreSemiFinal(IList<string> guesses, IList<string> actual)
+        public static int ScoreSemiFinal(IList<string> guesses, IList<string> actual)
         {
             return guesses.Where(g => actual.Contains(g)).Count() * _correctSemiFinal;
         }
 
-        public int ScoreFinal(IList<string> guesses, IList<string> actual)
+        public static int ScoreFinal(IList<string> guesses, IList<string> actual)
         {
             return guesses.Where(g => actual.Contains(g)).Count() * _correctFinal;
         }
 
-        public int ScoreChampion(string guess, string actual)
+        public static int ScoreChampion(string guess, string actual)
         {
             if (guess == actual)
             {
@@ -87,7 +87,7 @@ namespace BlazeCup
             return 0;
         }
 
-        public int ScoreHighestScoringPlayer(string guess, string actual)
+        public static int ScoreHighestScoringPlayer(string guess, string actual)
         {
             if (guess == actual)
             {
@@ -97,7 +97,7 @@ namespace BlazeCup
             return 0;
         }
 
-        public int ScoreHighestScoringTeam(string guess, string actual)
+        public static int ScoreHighestScoringTeam(string guess, string actual)
         {
             if (guess == actual)
             {

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazeCup", "BlazeCup\BlazeC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazeCupTests", "BlazeCupTests\BlazeCupTests.csproj", "{EAD5681B-448E-4DB1-8F0C-03641E6769FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazeCup.Logic", "Logic\BlazeCup.Logic.csproj", "{67EAF493-22A1-4B97-A23E-A1A6B4E0F64C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EAD5681B-448E-4DB1-8F0C-03641E6769FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAD5681B-448E-4DB1-8F0C-03641E6769FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAD5681B-448E-4DB1-8F0C-03641E6769FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67EAF493-22A1-4B97-A23E-A1A6B4E0F64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EAF493-22A1-4B97-A23E-A1A6B4E0F64C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EAF493-22A1-4B97-A23E-A1A6B4E0F64C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EAF493-22A1-4B97-A23E-A1A6B4E0F64C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
