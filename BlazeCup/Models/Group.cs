@@ -7,7 +7,9 @@ namespace BlazeCup.Models
 {
     public class Group
     {
-        public List<Team> Teams { get; set; }
+        public String Name { get; set; }
+        public List<string> TeamNames { get; set; }
+        public List<Team> Teams { get; set; }        
         public List<Match> Matches { get; set; }
     }
 }

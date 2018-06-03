@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\GroupView.cshtml" />
     <None Include="Pages\Teams.cshtml" />
     <None Include="Pages\Todo.cshtml" />
   </ItemGroup>
@@ -33,6 +34,10 @@
 
   <ItemGroup>
     <Content Remove="Pages\Teams.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <BlazorGenerate Remove="Pages\GroupView.cshtml" />
   </ItemGroup>
 
 </Project>

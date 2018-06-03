@@ -1,7 +1,7 @@
 ﻿[
   {
     "Name": "A",
-    "Teams": [
+    "TeamNames": [
       "Egypt",
       "Russia",
       "Saudi Arabia",
@@ -10,7 +10,7 @@
   },
   {
     "Name": "B",
-    "Teams": [
+    "TeamNames": [
       "Iran",
       "Morocco",
       "Portugal",
@@ -19,7 +19,7 @@
   },
   {
     "Name": "C",
-    "Teams": [
+    "TeamNames": [
       "Australia",
       "Denmark",
       "France",
@@ -28,7 +28,7 @@
   },
   {
     "Name": "D",
-    "Teams": [
+    "TeamNames": [
       "Argentina",
       "Croatia",
       "Iceland",
@@ -37,7 +37,7 @@
   },
   {
     "Name": "E",
-    "Teams": [
+    "TeamNames": [
       "Brazil",
       "Costa Rica",
       "Serbia",
@@ -46,7 +46,7 @@
   },
   {
     "Name": "F",
-    "Teams": [
+    "TeamNames": [
       "Germany",
       "South Korea",
       "Mexico",
@@ -55,7 +55,7 @@
   },
   {
     "Name": "G",
-    "Teams": [
+    "TeamNames": [
       "Belgium",
       "England",
       "Panama",
@@ -64,7 +64,7 @@
   },
   {
     "Name": "H",
-    "Teams": [
+    "TeamNames": [
       "Colombia",
       "Japan",
       "Poland",

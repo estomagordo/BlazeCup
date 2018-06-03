@@ -1,0 +1,19 @@
+﻿@using Models
+
+<div class="row">
+    <div class="col-sm-6">@group.Name</div>
+</div>
+@foreach (var team in group.Teams)
+{
+    <div class="row">
+        <div class="col-sm-6">@team.Name</div>
+        <div class="col-sm-6"><img src="@team.FlagUrl" /></div>
+    </div>
+}
+
+@functions {
+
+[Parameter]
+private Group group { get; set; }
+
+}
