@@ -3,13 +3,26 @@
 <div class="row">
     <div class="col-sm-6">@group.Name</div>
 </div>
-@foreach (var team in group.Teams)
+
+@foreach (var match in group.Matches)
+{
+<div class="row">
+    <div class="col-sm-3">@match.Home.Name</div>
+    <div class="col-sm-1"><img src="@match.Home.FlagUrl" /></div>
+    <div class="col-sm-2">@match.HomePredictedGoals</div>
+    <div class="col-sm-3">@match.Away.Name</div>
+    <div class="col-sm-1"><img src="@match.Away.FlagUrl" /></div>
+    <div class="col-sm-2">@match.AwayPredictedGoals</div>
+</div>
+}
+
+@*@foreach (var team in group.Teams)
 {
     <div class="row">
         <div class="col-sm-6">@team.Name</div>
         <div class="col-sm-6"><img src="@team.FlagUrl" /></div>
     </div>
-}
+}*@
 
 @functions {
 

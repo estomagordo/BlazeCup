@@ -9,7 +9,9 @@ namespace BlazeCup.Models
     {
         public Team Home { get; set; }
         public Team Away { get; set; }
-        public int HomeGoals { get; set; }
-        public int AwayGoals { get; set; }
+        public int HomePredictedGoals { get; set; }
+        public int AwayPredictedGoals { get; set; }
+        public int HomeActualGoals { get; set; }
+        public int AwayActualGoals { get; set; }
     }
 }

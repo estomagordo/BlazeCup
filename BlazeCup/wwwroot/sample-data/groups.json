@@ -6,6 +6,14 @@
       "Russia",
       "Saudi Arabia",
       "Uruguay"
+    ],
+    "MatchNames": [
+      [ "Russia", "Saudi Arabia" ],
+      [ "Egypt", "Uruguay" ],
+      [ "Russia", "Egypt" ],
+      [ "Uruguay", "Saudi Arabia" ],
+      [ "Uruguay", "Russia" ],
+      [ "Saudi Arabia", "Egypt" ]
     ]
   },
   {
@@ -15,6 +23,14 @@
       "Morocco",
       "Portugal",
       "Spain"
+    ],
+    "MatchNames": [
+      [ "Morocco", "Iran" ],
+      [ "Portugal", "Spain" ],
+      [ "Portugal", "Morocco" ],
+      [ "Iran", "Spain" ],
+      [ "Iran", "Portugal" ],
+      [ "Spain", "Morocco" ]
     ]
   },
   {
@@ -24,6 +40,14 @@
       "Denmark",
       "France",
       "Peru"
+    ],
+    "MatchNames": [
+      [ "France", "Australia" ],
+      [ "Peru", "Denmark" ],
+      [ "Denmark", "Australia" ],
+      [ "France", "Peru" ],
+      [ "Denmark", "France" ],
+      [ "Australia", "Peru" ]
     ]
   },
   {
@@ -33,6 +57,14 @@
       "Croatia",
       "Iceland",
       "Nigeria"
+    ],
+    "MatchNames": [
+      [ "Argentina", "Iceland" ],
+      [ "Croatia", "Nigeria" ],
+      [ "Argentina", "Croatia" ],
+      [ "Nigeria", "Iceland" ],
+      [ "Nigeria", "Argentina" ],
+      [ "Iceland", "Croatia" ]
     ]
   },
   {
@@ -42,6 +74,14 @@
       "Costa Rica",
       "Serbia",
       "Switzerland"
+    ],
+    "MatchNames": [
+      [ "Costa Rica", "Serbia" ],
+      [ "Brazil", "Switzerland" ],
+      [ "Brazil", "Costa Rica" ],
+      [ "Serbia", "Switzerland" ],
+      [ "Serbia", "Brazil" ],
+      [ "Switzerland", "Costa Rica" ]
     ]
   },
   {
@@ -51,6 +91,14 @@
       "South Korea",
       "Mexico",
       "Sweden"
+    ],
+    "MatchNames": [
+      [ "Germany", "Mexico" ],
+      [ "Sweden", "South Korea" ],
+      [ "South Korea", "Mexico" ],
+      [ "Germany", "Sweden" ],
+      [ "South Korea", "Germany" ],
+      [ "Mexico", "Sweden" ]
     ]
   },
   {
@@ -60,6 +108,14 @@
       "England",
       "Panama",
       "Tunisia"
+    ],
+    "MatchNames": [
+      [ "Belgium", "Panama" ],
+      [ "Tunisia", "England" ],
+      [ "Belgium", "Tunisia" ],
+      [ "England", "Panama" ],
+      [ "England", "Belgium" ],
+      [ "Panama", "Tunisia" ]
     ]
   },
   {
@@ -69,6 +125,14 @@
       "Japan",
       "Poland",
       "Senegal"
+    ],
+    "MatchNames": [
+      [ "Colombia", "Japan" ],
+      [ "Poland", "Senegal" ],
+      [ "Japan", "Senegal" ],
+      [ "Poland", "Colombia" ],
+      [ "Japan", "Poland" ],
+      [ "Senegal", "Colombia" ]
     ]
   }
 ]
