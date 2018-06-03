@@ -1,0 +1,138 @@
+﻿[
+  {
+    "Name": "A",
+    "TeamNames": [
+      "Egypt",
+      "Russia",
+      "Saudi Arabia",
+      "Uruguay"
+    ],
+    "MatchNames": [
+      [ "Russia", "Saudi Arabia" ],
+      [ "Egypt", "Uruguay" ],
+      [ "Russia", "Egypt" ],
+      [ "Uruguay", "Saudi Arabia" ],
+      [ "Uruguay", "Russia" ],
+      [ "Saudi Arabia", "Egypt" ]
+    ]
+  },
+  {
+    "Name": "B",
+    "TeamNames": [
+      "Iran",
+      "Morocco",
+      "Portugal",
+      "Spain"
+    ],
+    "MatchNames": [
+      [ "Morocco", "Iran" ],
+      [ "Portugal", "Spain" ],
+      [ "Portugal", "Morocco" ],
+      [ "Iran", "Spain" ],
+      [ "Iran", "Portugal" ],
+      [ "Spain", "Morocco" ]
+    ]
+  },
+  {
+    "Name": "C",
+    "TeamNames": [
+      "Australia",
+      "Denmark",
+      "France",
+      "Peru"
+    ],
+    "MatchNames": [
+      [ "France", "Australia" ],
+      [ "Peru", "Denmark" ],
+      [ "Denmark", "Australia" ],
+      [ "France", "Peru" ],
+      [ "Denmark", "France" ],
+      [ "Australia", "Peru" ]
+    ]
+  },
+  {
+    "Name": "D",
+    "TeamNames": [
+      "Argentina",
+      "Croatia",
+      "Iceland",
+      "Nigeria"
+    ],
+    "MatchNames": [
+      [ "Argentina", "Iceland" ],
+      [ "Croatia", "Nigeria" ],
+      [ "Argentina", "Croatia" ],
+      [ "Nigeria", "Iceland" ],
+      [ "Nigeria", "Argentina" ],
+      [ "Iceland", "Croatia" ]
+    ]
+  },
+  {
+    "Name": "E",
+    "TeamNames": [
+      "Brazil",
+      "Costa Rica",
+      "Serbia",
+      "Switzerland"
+    ],
+    "MatchNames": [
+      [ "Costa Rica", "Serbia" ],
+      [ "Brazil", "Switzerland" ],
+      [ "Brazil", "Costa Rica" ],
+      [ "Serbia", "Switzerland" ],
+      [ "Serbia", "Brazil" ],
+      [ "Switzerland", "Costa Rica" ]
+    ]
+  },
+  {
+    "Name": "F",
+    "TeamNames": [
+      "Germany",
+      "South Korea",
+      "Mexico",
+      "Sweden"
+    ],
+    "MatchNames": [
+      [ "Germany", "Mexico" ],
+      [ "Sweden", "South Korea" ],
+      [ "South Korea", "Mexico" ],
+      [ "Germany", "Sweden" ],
+      [ "South Korea", "Germany" ],
+      [ "Mexico", "Sweden" ]
+    ]
+  },
+  {
+    "Name": "G",
+    "TeamNames": [
+      "Belgium",
+      "England",
+      "Panama",
+      "Tunisia"
+    ],
+    "MatchNames": [
+      [ "Belgium", "Panama" ],
+      [ "Tunisia", "England" ],
+      [ "Belgium", "Tunisia" ],
+      [ "England", "Panama" ],
+      [ "England", "Belgium" ],
+      [ "Panama", "Tunisia" ]
+    ]
+  },
+  {
+    "Name": "H",
+    "TeamNames": [
+      "Colombia",
+      "Japan",
+      "Poland",
+      "Senegal"
+    ],
+    "MatchNames": [
+      [ "Colombia", "Japan" ],
+      [ "Poland", "Senegal" ],
+      [ "Japan", "Senegal" ],
+      [ "Poland", "Colombia" ],
+      [ "Japan", "Poland" ],
+      [ "Senegal", "Colombia" ]
+    ]
+  }
+]

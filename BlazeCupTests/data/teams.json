@@ -1,0 +1,130 @@
+﻿[
+  {
+    "Name": "Argentina",
+    "FlagUrl": "images/flags/argentina.png"
+  },
+  {
+    "Name": "Australia",
+    "FlagUrl": "images/flags/australia.png"
+  },
+  {
+    "Name": "Belgium",
+    "FlagUrl": "images/flags/belgium.png"
+  },
+  {
+    "Name": "Brazil",
+    "FlagUrl": "images/flags/brazil.png"
+  },
+  {
+    "Name": "Colombia",
+    "FlagUrl": "images/flags/colombia.png"
+  },
+  {
+    "Name": "Costa Rica",
+    "FlagUrl": "images/flags/costarica.png"
+  },
+  {
+    "Name": "Croatia",
+    "FlagUrl": "images/flags/croatia.png"
+  },
+  {
+    "Name": "Denmark",
+    "FlagUrl": "images/flags/denmark.png"
+  },
+  {
+    "Name": "Egypt",
+    "FlagUrl": "images/flags/egypt.png"
+  },
+  {
+    "Name": "England",
+    "FlagUrl": "images/flags/england.png"
+  },
+  {
+    "Name": "France",
+    "FlagUrl": "images/flags/france.png"
+  },
+  {
+    "Name": "Germany",
+    "FlagUrl": "images/flags/germany.png"
+  },
+  {
+    "Name": "Iceland",
+    "FlagUrl": "images/flags/iceland.png"
+  },
+  {
+    "Name": "Iran",
+    "FlagUrl": "images/flags/iran.png"
+  },
+  {
+    "Name": "Japan",
+    "FlagUrl": "images/flags/japan.png"
+  },
+  {
+    "Name": "Mexico",
+    "FlagUrl": "images/flags/mexico.png"
+  },
+  {
+    "Name": "Morocco",
+    "FlagUrl": "images/flags/morocco.png"
+  },
+  {
+    "Name": "Nigeria",
+    "FlagUrl": "images/flags/nigeria.png"
+  },
+  {
+    "Name": "Panama",
+    "FlagUrl": "images/flags/panama.png"
+  },
+  {
+    "Name": "Peru",
+    "FlagUrl": "images/flags/peru.png"
+  },
+  {
+    "Name": "Poland",
+    "FlagUrl": "images/flags/poland.png"
+  },
+  {
+    "Name": "Portugal",
+    "FlagUrl": "images/flags/portugal.png"
+  },
+  {
+    "Name": "Russia",
+    "FlagUrl": "images/flags/russia.png"
+  },
+  {
+    "Name": "Saudi Arabia",
+    "FlagUrl": "images/flags/saudiarabia.png"
+  },
+  {
+    "Name": "Senegal",
+    "FlagUrl": "images/flags/senegal.png"
+  },
+  {
+    "Name": "Serbia",
+    "FlagUrl": "images/flags/serbia.png"
+  },
+  {
+    "Name": "South Korea",
+    "FlagUrl": "images/flags/southkorea.png"
+  },
+  {
+    "Name": "Spain",
+    "FlagUrl": "images/flags/spain.png"
+  },
+  {
+    "Name": "Sweden",
+    "FlagUrl": "images/flags/sweden.png"
+  },
+  {
+    "Name": "Switzerland",
+    "FlagUrl": "images/flags/switzerland.png"
+  },
+  {
+    "Name": "Tunisia",
+    "FlagUrl": "images/flags/tunisia.png"
+  },
+  {
+    "Name": "Uruguay",
+    "FlagUrl": "images/flags/uruguay.png"
+  }
+]
