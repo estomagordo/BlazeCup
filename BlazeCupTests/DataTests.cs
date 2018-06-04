@@ -16,9 +16,10 @@ namespace BlazeCupTests
         [ClassInitialize]
         public static void Setup(TestContext context)
         {
-            var basePath = @"C:\Users\cohlsson\Source\repos\BlazeCup\BlazeCupTests\data\";
+            var basePath = @"..\..\..\data\";
             var teamPath = basePath + "teams.json";
             var groupPath = basePath + "groups.json";
+
 
             using (var sr = new StreamReader(teamPath))
             {
@@ -50,8 +51,7 @@ namespace BlazeCupTests
                         Away = _teams.First(t => t.Name == mn[1])
                     });
                 });
-            });
-            
+            });            
 
         }
 
