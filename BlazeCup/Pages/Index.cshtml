@@ -7,23 +7,44 @@
     <p><em>Loading...</em></p>
 }
 else
-{    
-    @foreach (var group in groups)
+{
+    <div id="container" style="width: 600px;">
+        <div class="row" id="part-0" style='display: @(Visible[0] ? "initial" : "none")'>
+            <div class="col-sm-12" style="height: 200px;"><span>This is were all the cool information gets displayed :)</span></div>
+        </div>
+
+        @for (var i = 1; i <= 8; i++)
         {
-            <div class="row">
-                <div class="col-sm-12"><GroupView group="@group"></GroupView></div>
+            <div class="row" id="@String.Format("part-{0}", i)" style='height: 400px; display: @(Visible[i] ? "initial" : "none")'>
+                <div class="col-sm-12" style="height: 200px;"><GroupView group="@(groups[i-1])"></GroupView></div>
             </div>
         }
+
+        <button onclick="@CycleParts">Cycle</button>
+    </div>
 }
 
 @functions {
-    Group[] groups;
-    Team[] teams;
+        Group[] groups;
+        Team[] teams;
+        int Showing { get; set; } = 0;
+        bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false };
+
+        void CycleParts()
+        {
+            Showing = (Showing + 1) % 9;
+
+            for (var i = 0; i < 9; i++)
+            {
+                Visible[i] = i == Showing;
+            }
+        }
 
     protected override async Task OnInitAsync()
     {
         teams = await Http.GetJsonAsync<Team[]>("/sample-data/teams.json");
         groups = await Http.GetJsonAsync<Group[]>("/sample-data/groups.json");
+
 
         groups.ToList().ForEach(g =>
         {
@@ -43,6 +64,6 @@ else
                     Away = teams.First(t => t.Name == mn[1])
                 });
             });
-        });    
+        });
     }
 }
