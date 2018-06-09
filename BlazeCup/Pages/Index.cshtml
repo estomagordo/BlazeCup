@@ -94,7 +94,7 @@ else
                 <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
             </div>
         </div>
-        <button onclick="@CycleParts">Cycle</button>
+        <button onclick="@CycleBack">Föregående</button><button onclick="@CycleForward">Nästa</button>
         </div>
 }
 
@@ -105,14 +105,24 @@ else
     int Showing { get; set; } = 0;
     bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false, false, false, false };
 
-    void CycleParts()
+    void CycleParts(int steps)
     {
-        Showing = (Showing + 1) % partCount;
+        Showing = (Showing + steps + partCount) % partCount;
 
         for (var i = 0; i < partCount; i++)
         {
             Visible[i] = i == Showing;
         }
+    }
+
+    void CycleBack()
+    {
+        CycleParts(-1);
+    }
+
+    void CycleForward()
+    {
+        CycleParts(1);
     }
 
     protected override async Task OnInitAsync()
