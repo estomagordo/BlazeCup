@@ -25,20 +25,20 @@ else
 }
 
 @functions {
-        Group[] groups;
-        Team[] teams;
-        int Showing { get; set; } = 0;
-        bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false };
+    Group[] groups;
+    Team[] teams;
+    int Showing { get; set; } = 0;
+    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false };
 
-        void CycleParts()
+    void CycleParts()
+    {
+        Showing = (Showing + 1) % 9;
+
+        for (var i = 0; i < 9; i++)
         {
-            Showing = (Showing + 1) % 9;
-
-            for (var i = 0; i < 9; i++)
-            {
-                Visible[i] = i == Showing;
-            }
+            Visible[i] = i == Showing;
         }
+    }
 
     protected override async Task OnInitAsync()
     {
