@@ -15,17 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <BlazorGenerate Remove="Pages\Todo.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Pages\Todo.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Pages\GroupView.cshtml" />
     <None Include="Pages\Teams.cshtml" />
-    <None Include="Pages\Todo.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
