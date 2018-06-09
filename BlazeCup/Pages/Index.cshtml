@@ -10,67 +10,92 @@ else
 {
     <div id="container" style="width: 600px;">
         <div class="row" id="part-0" style='display: @(Visible[0] ? "initial" : "none")'>
-            <div class="col-sm-12" style="height: 200px;"><span>This is were all the cool information gets displayed :)</span></div>
+            <div class="col-sm-12" style="height: 280px;"><span>This is were all the cool information gets displayed :)</span></div>
         </div>
 
         @for (var i = 1; i <= 8; i++)
         {
             <div class="row" id="@String.Format("part-{0}", i)" style='height: 400px; display: @(Visible[i] ? "initial" : "none")'>
-                <div class="col-sm-12" style="height: 200px;"><GroupView group="@(groups[i-1])"></GroupView></div>
+                <div class="col-sm-12" style="height: 280px;"><GroupView group="@(groups[i-1])"></GroupView></div>
             </div>
         }
 
-        <div class="row" id="part-9" style='display: @(Visible[9] ? "initial" : "none")'>
-            <div class="col-sm-12"><span>Tippa åttondelsfinalisterna</span></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-        </div>
-
+            <div class="row" id="part-9" style='display: @(Visible[9] ? "initial" : "none")'>
+                <div style="height: 280px;">
+                    <div class="col-sm-12"><span>Tippa åttondelsfinalisterna</span></div>
+                    <div class="row">
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                        <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    </div>
+                </div>                
+            </div>
         <div class="row" id="part-10" style='display: @(Visible[10] ? "initial" : "none")'>
-            <div class="col-sm-12"><span>Tippa kvartsfinalisterna</span></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div style="height: 280px;">
+                <div class="col-sm-12"><span>Tippa kvartsfinalisterna</span></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            </div>
         </div>
-
         <div class="row" id="part-11" style='display: @(Visible[11] ? "initial" : "none")'>
-            <div class="col-sm-12"><span>Tippa semifinalisterna</span></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><span>Tippa finalisterna</span></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><span>Tippa vinnarna</span></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><span>Vilket lag gör flest mål?</span></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
-            <div class="col-sm-12"><span>Vilket lag har bästa målskytten?</span></div>
-            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div style="height: 280px;">
+                <div class="col-sm-12"><span>Tippa semifinalisterna</span></div>
+                <div class="row">
+                    <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                </div>
+                <div class="col-sm-12"><span>Tippa finalisterna</span></div>
+                <div class="row">
+                    <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                    <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                </div>
+                <div class="col-sm-12"><span>Tippa vinnarna</span></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><span>Vilket lag gör flest mål?</span></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+                <div class="col-sm-12"><span>Vilket lag har bästa målskytten?</span></div>
+                <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            </div>
         </div>
-
         <button onclick="@CycleParts">Cycle</button>
-    </div>
+        </div>
 }
 
 @functions {
