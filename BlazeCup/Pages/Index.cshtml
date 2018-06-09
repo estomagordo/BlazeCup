@@ -20,21 +20,71 @@ else
             </div>
         }
 
+        <div class="row" id="part-9" style='display: @(Visible[9] ? "initial" : "none")'>
+            <div class="col-sm-12"><span>Tippa åttondelsfinalisterna</span></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+        </div>
+
+        <div class="row" id="part-10" style='display: @(Visible[10] ? "initial" : "none")'>
+            <div class="col-sm-12"><span>Tippa kvartsfinalisterna</span></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+        </div>
+
+        <div class="row" id="part-11" style='display: @(Visible[11] ? "initial" : "none")'>
+            <div class="col-sm-12"><span>Tippa semifinalisterna</span></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><span>Tippa finalisterna</span></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><span>Tippa vinnarna</span></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><span>Vilket lag gör flest mål?</span></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+            <div class="col-sm-12"><span>Vilket lag har bästa målskytten?</span></div>
+            <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
+        </div>
+
         <button onclick="@CycleParts">Cycle</button>
     </div>
 }
 
 @functions {
+    private const int partCount = 12;
     Group[] groups;
     Team[] teams;
     int Showing { get; set; } = 0;
-    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false };
+    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false, false, false, false };
 
     void CycleParts()
     {
-        Showing = (Showing + 1) % 9;
+        Showing = (Showing + 1) % partCount;
 
-        for (var i = 0; i < 9; i++)
+        for (var i = 0; i < partCount; i++)
         {
             Visible[i] = i == Showing;
         }

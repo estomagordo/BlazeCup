@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazeCup", "BlazeCup\BlazeCup.csproj", "{D6E81725-9BD9-40A3-9509-5C3A1179DE73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazeCup", "BlazeCup\BlazeCup.csproj", "{D6E81725-9BD9-40A3-9509-5C3A1179DE73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazeCupTests", "BlazeCupTests\BlazeCupTests.csproj", "{EAD5681B-448E-4DB1-8F0C-03641E6769FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazeCupTests", "BlazeCupTests\BlazeCupTests.csproj", "{EAD5681B-448E-4DB1-8F0C-03641E6769FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazeCup.Logic", "Logic\BlazeCup.Logic.csproj", "{67EAF493-22A1-4B97-A23E-A1A6B4E0F64C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazeCup.Logic", "Logic\BlazeCup.Logic.csproj", "{67EAF493-22A1-4B97-A23E-A1A6B4E0F64C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

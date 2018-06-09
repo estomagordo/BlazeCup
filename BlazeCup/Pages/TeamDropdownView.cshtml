@@ -1,0 +1,17 @@
+﻿@using Models
+
+<select bind="@Selected">
+    @foreach (var team in teams)
+    {
+        <option>@team.Name</option>
+    }
+</select>
+
+@functions {
+
+    string Selected { get; set; }
+
+    [Parameter]
+    private Team[] teams { get; set; }
+
+}
