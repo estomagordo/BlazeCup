@@ -407,6 +407,9 @@ else
     string TopScoringTeam { get; set; }
     string TopScoringPlayerTeam { get; set; }
 
+    string ParticipantName { get; set; }
+    string ParticipantEmail { get; set; }
+
     void CycleParts(int steps)
     {
         Showing = (Showing + steps + partCount) % partCount;
@@ -426,6 +429,82 @@ else
     void CycleForward()
     {
         CycleParts(1);
+    }
+
+    bool SubmissionValid()
+    {
+        var secondRounders = new List<string>() { SecondRound1, SecondRound2, SecondRound3, SecondRound4, SecondRound5, SecondRound6, SecondRound7, SecondRound8,
+            SecondRound9, SecondRound10, SecondRound11, SecondRound12, SecondRound13, SecondRound14, SecondRound15, SecondRound16 };
+        var quarterFinalists = new List<string>() { QuarterFinalist1, QuarterFinalist2, QuarterFinalist3, QuarterFinalist4, QuarterFinalist5, QuarterFinalist6, QuarterFinalist7, QuarterFinalist8 };
+        var semiFinalists = new List<string>() { SemiFinalist1, SemiFinalist2, SemiFinalist3, SemiFinalist4 };
+        var finalists = new List<string>() { Finalist1, Finalist2 };
+
+        if (secondRounders.Any(entry => String.IsNullOrWhiteSpace(entry)))
+        {
+            return false;
+        }
+
+        if (secondRounders.GroupBy(n => n).Any(c => c.Count() > 1))
+        {
+            return false;
+        }
+
+        if (quarterFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+        {
+            return false;
+        }
+
+        if (quarterFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
+        {
+            return false;
+        }
+
+        if (semiFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+        {
+            return false;
+        }
+
+        if (semiFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
+        {
+            return false;
+        }
+
+        if (finalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+        {
+            return false;
+        }
+
+        if (finalists.GroupBy(n => n).Any(c => c.Count() > 1))
+        {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(Champion))
+        {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(TopScoringTeam))
+        {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(TopScoringPlayerTeam))
+        {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(ParticipantName))
+        {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(ParticipantEmail))
+        {
+            return false;
+        }
+
+        return true;
     }
 
     protected override async Task OnInitAsync()
