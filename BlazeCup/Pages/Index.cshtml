@@ -16,7 +16,7 @@ else
         @for (var i = 1; i <= 8; i++)
         {
             <div class="row" id="@String.Format("part-{0}", i)" style='display: @(Visible[i] ? "initial" : "none")'>
-                <div class="col-sm-12 content-part"><GroupView group="@(groups[i-1])"></GroupView></div>
+                <div class="col-sm-12 content-part"><GroupView group="@(groups[i - 1])"></GroupView></div>
             </div>
         }
 
@@ -25,7 +25,7 @@ else
                 <div class="col-sm-12"><span>Tippa åttondelsfinalisterna</span></div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select bind="@SecondRound1">
+                        <select bind="@ParticipantSubmission.SecondRound1">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -34,27 +34,7 @@ else
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <select bind="@SecondRound2">
-                            <option></option>
-                            @foreach (var team in teams)
-                            {
-                                <option>@team.Name</option>
-                            }
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <select bind="@SecondRound3">
-                            <option></option>
-                            @foreach (var team in teams)
-                            {
-                                <option>@team.Name</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <select bind="@SecondRound4">
+                        <select bind="@ParticipantSubmission.SecondRound2">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -65,7 +45,7 @@ else
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select bind="@SecondRound5">
+                        <select bind="@ParticipantSubmission.SecondRound3">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -74,27 +54,7 @@ else
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <select bind="@SecondRound6">
-                            <option></option>
-                            @foreach (var team in teams)
-                            {
-                                <option>@team.Name</option>
-                            }
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <select bind="@SecondRound7">
-                            <option></option>
-                            @foreach (var team in teams)
-                            {
-                                <option>@team.Name</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <select bind="@SecondRound8">
+                        <select bind="@ParticipantSubmission.SecondRound4">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -105,7 +65,7 @@ else
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select bind="@SecondRound9">
+                        <select bind="@ParticipantSubmission.SecondRound5">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -114,27 +74,7 @@ else
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <select bind="@SecondRound10">
-                            <option></option>
-                            @foreach (var team in teams)
-                            {
-                                <option>@team.Name</option>
-                            }
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <select bind="@SecondRound11">
-                            <option></option>
-                            @foreach (var team in teams)
-                            {
-                                <option>@team.Name</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <select bind="@SecondRound12">
+                        <select bind="@ParticipantSubmission.SecondRound6">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -145,7 +85,7 @@ else
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select bind="@SecondRound13">
+                        <select bind="@ParticipantSubmission.SecondRound7">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -154,7 +94,7 @@ else
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <select bind="@SecondRound14">
+                        <select bind="@ParticipantSubmission.SecondRound8">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -165,7 +105,7 @@ else
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select bind="@SecondRound15">
+                        <select bind="@ParticipantSubmission.SecondRound9">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -174,7 +114,67 @@ else
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <select bind="@SecondRound16">
+                        <select bind="@ParticipantSubmission.SecondRound10">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <select bind="@ParticipantSubmission.SecondRound11">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <select bind="@ParticipantSubmission.SecondRound12">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <select bind="@ParticipantSubmission.SecondRound13">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <select bind="@ParticipantSubmission.SecondRound14">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <select bind="@ParticipantSubmission.SecondRound15">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-6">
+                        <select bind="@ParticipantSubmission.SecondRound16">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -189,7 +189,7 @@ else
             <div class="content-part">
                 <div class="col-sm-12"><span>Tippa kvartsfinalisterna</span></div>
                 <div class="col-sm-12">
-                    <select bind="@QuarterFinalist1">
+                    <select bind="@ParticipantSubmission.QuarterFinalist1">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -198,7 +198,7 @@ else
                     </select>
                 </div>
                 <div class="col-sm-12">
-                    <select bind="@QuarterFinalist2">
+                    <select bind="@ParticipantSubmission.QuarterFinalist2">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -207,7 +207,7 @@ else
                     </select>
                 </div>
                 <div class="col-sm-12">
-                    <select bind="@QuarterFinalist3">
+                    <select bind="@ParticipantSubmission.QuarterFinalist3">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -216,7 +216,7 @@ else
                     </select>
                 </div>
                 <div class="col-sm-12">
-                    <select bind="@QuarterFinalist4">
+                    <select bind="@ParticipantSubmission.QuarterFinalist4">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -225,7 +225,7 @@ else
                     </select>
                 </div>
                 <div class="col-sm-12">
-                    <select bind="@QuarterFinalist5">
+                    <select bind="@ParticipantSubmission.QuarterFinalist5">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -234,7 +234,7 @@ else
                     </select>
                 </div>
                 <div class="col-sm-12">
-                    <select bind="@QuarterFinalist6">
+                    <select bind="@ParticipantSubmission.QuarterFinalist6">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -243,7 +243,7 @@ else
                     </select>
                 </div>
                 <div class="col-sm-12">
-                    <select bind="@QuarterFinalist7">
+                    <select bind="@ParticipantSubmission.QuarterFinalist7">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -252,7 +252,7 @@ else
                     </select>
                 </div>
                 <div class="col-sm-12">
-                    <select bind="@QuarterFinalist8">
+                    <select bind="@ParticipantSubmission.QuarterFinalist8">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -267,7 +267,7 @@ else
                 <div class="col-sm-12"><span>Tippa semifinalisterna</span></div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select bind="@SemiFinalist1">
+                        <select bind="@ParticipantSubmission.SemiFinalist1">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -276,7 +276,7 @@ else
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <select bind="@SemiFinalist2">
+                        <select bind="@ParticipantSubmission.SemiFinalist2">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -287,7 +287,7 @@ else
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select bind="@SemiFinalist3">
+                        <select bind="@ParticipantSubmission.SemiFinalist3">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -296,7 +296,7 @@ else
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <select bind="@SemiFinalist4">
+                        <select bind="@ParticipantSubmission.SemiFinalist4">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -308,7 +308,7 @@ else
                 <div class="col-sm-12"><span>Tippa finalisterna</span></div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <select bind="@Finalist1">
+                        <select bind="@ParticipantSubmission.Finalist1">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -317,7 +317,7 @@ else
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <select bind="@Finalist2">
+                        <select bind="@ParticipantSubmission.Finalist2">
                             <option></option>
                             @foreach (var team in teams)
                             {
@@ -328,7 +328,7 @@ else
                 </div>
                 <div class="col-sm-12"><span>Tippa vinnarna</span></div>
                 <div class="col-sm-12">
-                    <select bind="@Champion">
+                    <select bind="@ParticipantSubmission.Champion">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -338,7 +338,7 @@ else
                 </div>
                 <div class="col-sm-12"><span>Vilket lag gör flest mål?</span></div>
                 <div class="col-sm-12">
-                    <select bind="@TopScoringTeam">
+                    <select bind="@ParticipantSubmission.TopScoringTeam">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -348,7 +348,7 @@ else
                 </div>
                 <div class="col-sm-12"><span>Vilket lag har bästa målskytten?</span></div>
                 <div class="col-sm-12">
-                    <select bind="@TopScoringPlayerTeam">
+                    <select bind="@ParticipantSubmission.TopScoringPlayerTeam">
                         <option></option>
                         @foreach (var team in teams)
                         {
@@ -361,10 +361,10 @@ else
         <div class="row" id="part-12" style='display: @(Visible[12] ? "initial" : "none")'>
             <div class="col-sm-12 content-part">
                 <div class="row">
-                    <input bind="@ParticipantName" placeholder="Namn" />
+                    <input bind="@ParticipantSubmission.Name" placeholder="Namn" />
                 </div>
                 <div class="row">
-                    <input type="email" bind="@ParticipantEmail" placeholder="Epost" />
+                    <input type="email" bind="@ParticipantSubmission.Email" placeholder="Epost" />
                 </div>
                 <div style='display: @(!SubmissionValid() ? "initial" : "none")'>
                     <span>Du måste fylla i hela tipset korrekt för att kunna skicka in.</span>
@@ -384,47 +384,7 @@ else
     Team[] teams;
     int Showing { get; set; } = 0;
     bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false, false, false, false, false };
-
-    string SecondRound1 { get; set; }
-    string SecondRound2 { get; set; }
-    string SecondRound3 { get; set; }
-    string SecondRound4 { get; set; }
-    string SecondRound5 { get; set; }
-    string SecondRound6 { get; set; }
-    string SecondRound7 { get; set; }
-    string SecondRound8 { get; set; }
-    string SecondRound9 { get; set; }
-    string SecondRound10 { get; set; }
-    string SecondRound11 { get; set; }
-    string SecondRound12 { get; set; }
-    string SecondRound13 { get; set; }
-    string SecondRound14 { get; set; }
-    string SecondRound15 { get; set; }
-    string SecondRound16 { get; set; }
-
-    string QuarterFinalist1 { get; set; }
-    string QuarterFinalist2 { get; set; }
-    string QuarterFinalist3 { get; set; }
-    string QuarterFinalist4 { get; set; }
-    string QuarterFinalist5 { get; set; }
-    string QuarterFinalist6 { get; set; }
-    string QuarterFinalist7 { get; set; }
-    string QuarterFinalist8 { get; set; }
-
-    string SemiFinalist1 { get; set; }
-    string SemiFinalist2 { get; set; }
-    string SemiFinalist3 { get; set; }
-    string SemiFinalist4 { get; set; }
-
-    string Finalist1 { get; set; }
-    string Finalist2 { get; set; }
-
-    string Champion { get; set; }
-    string TopScoringTeam { get; set; }
-    string TopScoringPlayerTeam { get; set; }
-
-    string ParticipantName { get; set; }
-    string ParticipantEmail { get; set; }
+    Submission ParticipantSubmission { get; set; } = new Submission();
 
     void CycleParts(int steps)
     {
@@ -439,7 +399,6 @@ else
     void CycleBack()
     {
         CycleParts(-1);
-        Console.WriteLine(SecondRound1);
     }
 
     void CycleForward()
@@ -447,88 +406,84 @@ else
         CycleParts(1);
     }
 
-    void Submit()
+    async Task Submit()
     {
 
     }
 
     bool SubmissionValid()
     {
-        var secondRounders = new List<string>() { SecondRound1, SecondRound2, SecondRound3, SecondRound4, SecondRound5, SecondRound6, SecondRound7, SecondRound8,
-            SecondRound9, SecondRound10, SecondRound11, SecondRound12, SecondRound13, SecondRound14, SecondRound15, SecondRound16 };
-        var quarterFinalists = new List<string>() { QuarterFinalist1, QuarterFinalist2, QuarterFinalist3, QuarterFinalist4, QuarterFinalist5, QuarterFinalist6, QuarterFinalist7, QuarterFinalist8 };
-        var semiFinalists = new List<string>() { SemiFinalist1, SemiFinalist2, SemiFinalist3, SemiFinalist4 };
-        var finalists = new List<string>() { Finalist1, Finalist2 };
+        
 
-        if (secondRounders.Any(entry => String.IsNullOrWhiteSpace(entry)))
+        if (ParticipantSubmission.SecondRounders.Any(entry => String.IsNullOrWhiteSpace(entry)))
         {
             return false;
         }
 
-        if (secondRounders.GroupBy(n => n).Any(c => c.Count() > 1))
+        if (ParticipantSubmission.SecondRounders.GroupBy(n => n).Any(c => c.Count() > 1))
         {
             return false;
         }
 
-        if (quarterFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+        if (ParticipantSubmission.QuarterFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
         {
             return false;
         }
 
-        if (quarterFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
+        if (ParticipantSubmission.QuarterFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
         {
             return false;
         }
 
-        if (semiFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+        if (ParticipantSubmission.SemiFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
         {
             return false;
         }
 
-        if (semiFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
+        if (ParticipantSubmission.SemiFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
         {
             return false;
         }
 
-        if (finalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+        if (ParticipantSubmission.Finalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
         {
             return false;
         }
 
-        if (finalists.GroupBy(n => n).Any(c => c.Count() > 1))
+        if (ParticipantSubmission.Finalists.GroupBy(n => n).Any(c => c.Count() > 1))
         {
             return false;
         }
 
-        if (string.IsNullOrWhiteSpace(Champion))
+        if (string.IsNullOrWhiteSpace(ParticipantSubmission.Champion))
         {
             return false;
         }
 
-        if (string.IsNullOrWhiteSpace(TopScoringTeam))
+        if (string.IsNullOrWhiteSpace(ParticipantSubmission.TopScoringTeam))
         {
             return false;
         }
 
-        if (string.IsNullOrWhiteSpace(TopScoringPlayerTeam))
+        if (string.IsNullOrWhiteSpace(ParticipantSubmission.TopScoringPlayerTeam))
         {
             return false;
         }
 
-        if (string.IsNullOrWhiteSpace(ParticipantName))
+        if (string.IsNullOrWhiteSpace(ParticipantSubmission.Name))
         {
             return false;
         }
 
-        if (string.IsNullOrWhiteSpace(ParticipantEmail))
+        if (string.IsNullOrWhiteSpace(ParticipantSubmission.Email))
         {
             return false;
         }
 
         try
         {
-            var address = new System.Net.Mail.MailAddress(ParticipantEmail);
-            return address.Address == ParticipantEmail;
+            var address = new System.Net.Mail.MailAddress(ParticipantSubmission.Email);
+            return address.Address == ParticipantSubmission.Email;
         }
         catch
         {
