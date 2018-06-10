@@ -15,7 +15,7 @@ else
 
         @for (var i = 1; i <= 8; i++)
         {
-            <div class="row" id="@String.Format("part-{0}", i)" style='height: 400px; display: @(Visible[i] ? "initial" : "none")'>
+            <div class="row" id="@String.Format("part-{0}", i)" style='display: @(Visible[i] ? "initial" : "none")'>
                 <div class="col-sm-12 content-part"><GroupView group="@(groups[i-1])"></GroupView></div>
             </div>
         }
