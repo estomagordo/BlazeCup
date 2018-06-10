@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using  Models
 @inject HttpClient Http
+@inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 
 @if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || teams == null)
 {
@@ -366,7 +367,7 @@ else
                             }
                         </select>
                     </div>
-                </div>               
+                </div>
                 <div class="col-sm-12"><span class="font-weight-bold">Vilket lag gör flest mål?</span></div>
                 <div class="row">
                     <div class="col-sm-12">
@@ -410,143 +411,143 @@ else
 }
 
 @functions {
-    private const int partCount = 7;
-    List<Team> teams;
-    int Showing { get; set; } = 0;
-    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false };
-    Submission ParticipantSubmission { get; set; } = new Submission();
-    private const string SubmissionUrl = @"https://prod-11.northeurope.logic.azure.com:443/workflows/161819e8b13147f997217940ed56d337/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ymly_IacXujJaB-YGi7xVRKsN3edJ1MVY86xDWSnmFU";
+private const int partCount = 7;
+List<Team> teams;
+int Showing { get; set; } = 0;
+bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false };
+Submission ParticipantSubmission { get; set; } = new Submission();
+private const string SubmissionUrl = @"https://prod-11.northeurope.logic.azure.com:443/workflows/161819e8b13147f997217940ed56d337/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ymly_IacXujJaB-YGi7xVRKsN3edJ1MVY86xDWSnmFU";
 
-    void CycleParts(int steps)
+void CycleParts(int steps)
+{
+    Showing = (Showing + steps + partCount) % partCount;
+
+    for (var i = 0; i < partCount; i++)
     {
-        Showing = (Showing + steps + partCount) % partCount;
+        Visible[i] = i == Showing;
+    }
+}
 
-        for (var i = 0; i < partCount; i++)
-        {
-            Visible[i] = i == Showing;
-        }
+void CycleBack()
+{
+    CycleParts(-1);
+}
+
+void CycleForward()
+{
+    CycleParts(1);
+}
+
+async Task Submit()
+{
+    await Http.SendJsonAsync(HttpMethod.Post, SubmissionUrl, ParticipantSubmission);
+    UriHelper.NavigateTo("/thanks");
+}
+
+bool SubmissionValid()
+{
+
+
+    if (ParticipantSubmission.SecondRounders.Any(entry => String.IsNullOrWhiteSpace(entry)))
+    {
+        return false;
     }
 
-    void CycleBack()
+    if (ParticipantSubmission.SecondRounders.GroupBy(n => n).Any(c => c.Count() > 1))
     {
-        CycleParts(-1);
+        return false;
     }
 
-    void CycleForward()
+    if (ParticipantSubmission.QuarterFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
     {
-        CycleParts(1);
+        return false;
     }
 
-    async Task Submit()
+    if (ParticipantSubmission.QuarterFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
     {
-        await Http.SendJsonAsync(HttpMethod.Post, SubmissionUrl, ParticipantSubmission);
-        //UriHelper.NavigateTo("/fetchemployee");
+        return false;
     }
 
-    bool SubmissionValid()
+    if (ParticipantSubmission.SemiFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
     {
-
-
-        if (ParticipantSubmission.SecondRounders.Any(entry => String.IsNullOrWhiteSpace(entry)))
-        {
-            return false;
-        }
-
-        if (ParticipantSubmission.SecondRounders.GroupBy(n => n).Any(c => c.Count() > 1))
-        {
-            return false;
-        }
-
-        if (ParticipantSubmission.QuarterFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
-        {
-            return false;
-        }
-
-        if (ParticipantSubmission.QuarterFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
-        {
-            return false;
-        }
-
-        if (ParticipantSubmission.SemiFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
-        {
-            return false;
-        }
-
-        if (ParticipantSubmission.SemiFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
-        {
-            return false;
-        }
-
-        if (ParticipantSubmission.Finalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
-        {
-            return false;
-        }
-
-        if (ParticipantSubmission.Finalists.GroupBy(n => n).Any(c => c.Count() > 1))
-        {
-            return false;
-        }
-
-        if (string.IsNullOrWhiteSpace(ParticipantSubmission.Champion))
-        {
-            return false;
-        }
-
-        if (string.IsNullOrWhiteSpace(ParticipantSubmission.TopScoringTeam))
-        {
-            return false;
-        }
-
-        if (string.IsNullOrWhiteSpace(ParticipantSubmission.TopScoringPlayerTeam))
-        {
-            return false;
-        }
-
-        if (string.IsNullOrWhiteSpace(ParticipantSubmission.Name))
-        {
-            return false;
-        }
-
-        if (string.IsNullOrWhiteSpace(ParticipantSubmission.Email))
-        {
-            return false;
-        }
-
-        try
-        {
-            var address = new System.Net.Mail.MailAddress(ParticipantSubmission.Email);
-            return address.Address == ParticipantSubmission.Email;
-        }
-        catch
-        {
-            return false;
-        }
+        return false;
     }
 
-    protected override async Task OnInitAsync()
+    if (ParticipantSubmission.SemiFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
     {
-        teams = await Http.GetJsonAsync<List<Team>>("/sample-data/teams.json");
-        teams = teams.OrderBy(t => t.Name).ToList();
-        ParticipantSubmission.Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
+        return false;
+    }
 
-        ParticipantSubmission.Groups.ForEach(g =>
+    if (ParticipantSubmission.Finalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+    {
+        return false;
+    }
+
+    if (ParticipantSubmission.Finalists.GroupBy(n => n).Any(c => c.Count() > 1))
+    {
+        return false;
+    }
+
+    if (string.IsNullOrWhiteSpace(ParticipantSubmission.Champion))
+    {
+        return false;
+    }
+
+    if (string.IsNullOrWhiteSpace(ParticipantSubmission.TopScoringTeam))
+    {
+        return false;
+    }
+
+    if (string.IsNullOrWhiteSpace(ParticipantSubmission.TopScoringPlayerTeam))
+    {
+        return false;
+    }
+
+    if (string.IsNullOrWhiteSpace(ParticipantSubmission.Name))
+    {
+        return false;
+    }
+
+    if (string.IsNullOrWhiteSpace(ParticipantSubmission.Email))
+    {
+        return false;
+    }
+
+    try
+    {
+        var address = new System.Net.Mail.MailAddress(ParticipantSubmission.Email);
+        return address.Address == ParticipantSubmission.Email;
+    }
+    catch
+    {
+        return false;
+    }
+}
+
+protected override async Task OnInitAsync()
+{
+    teams = await Http.GetJsonAsync<List<Team>>("/sample-data/teams.json");
+    teams = teams.OrderBy(t => t.Name).ToList();
+    ParticipantSubmission.Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
+
+    ParticipantSubmission.Groups.ForEach(g =>
+    {
+        g.Teams = new List<Team>();
+        g.Matches = new List<Match>();
+
+        g.TeamNames.ForEach(tn =>
         {
-            g.Teams = new List<Team>();
-            g.Matches = new List<Match>();
+            g.Teams.Add(teams.First(t => t.Name == tn));
+        });
 
-            g.TeamNames.ForEach(tn =>
+        g.MatchNames.ForEach(mn =>
+        {
+            g.Matches.Add(new Match()
             {
-                g.Teams.Add(teams.First(t => t.Name == tn));
-            });
-
-            g.MatchNames.ForEach(mn =>
-            {
-                g.Matches.Add(new Match()
-                {
-                    Home = teams.First(t => t.Name == mn[0]),
-                    Away = teams.First(t => t.Name == mn[1])
-                });
+                Home = teams.First(t => t.Name == mn[0]),
+                Away = teams.First(t => t.Name == mn[1])
             });
         });
-    }
+    });
+}
 }
