@@ -449,7 +449,7 @@ else
 
     void Submit()
     {
-        
+
     }
 
     bool SubmissionValid()
@@ -525,7 +525,15 @@ else
             return false;
         }
 
-        return true;
+        try
+        {
+            var address = new System.Net.Mail.MailAddress(ParticipantEmail);
+            return address.Address == ParticipantEmail;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     protected override async Task OnInitAsync()
