@@ -7,6 +7,7 @@ namespace BlazeCup.Models
 {
     public class Submission
     {
+        public List<Group> Groups {get; set;}
         public string SecondRound1 { get; set; }
         public string SecondRound2 { get; set; }
         public string SecondRound3 { get; set; }

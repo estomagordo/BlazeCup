@@ -2,7 +2,7 @@
 @using  Models
 @inject HttpClient Http
 
-@if (groups == null || teams == null)
+@if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || teams == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -16,7 +16,7 @@ else
         @for (var i = 1; i <= 8; i++)
         {
             <div class="row" id="@String.Format("part-{0}", i)" style='display: @(Visible[i] ? "initial" : "none")'>
-                <div class="col-sm-12 content-part"><GroupView group="@(groups[i - 1])"></GroupView></div>
+                <div class="col-sm-12 content-part"><GroupView group="@(ParticipantSubmission.Groups[i - 1])"></GroupView></div>
             </div>
         }
 
@@ -380,11 +380,11 @@ else
 
 @functions {
     private const int partCount = 13;
-    Group[] groups;
     Team[] teams;
     int Showing { get; set; } = 0;
     bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false, false, false, false, false };
     Submission ParticipantSubmission { get; set; } = new Submission();
+    private const string SubmissionUrl = @"https://prod-11.northeurope.logic.azure.com:443/workflows/161819e8b13147f997217940ed56d337/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ymly_IacXujJaB-YGi7xVRKsN3edJ1MVY86xDWSnmFU";
 
     void CycleParts(int steps)
     {
@@ -408,12 +408,13 @@ else
 
     async Task Submit()
     {
-
+        await Http.SendJsonAsync(HttpMethod.Post, SubmissionUrl, ParticipantSubmission);
+        //UriHelper.NavigateTo("/fetchemployee");
     }
 
     bool SubmissionValid()
     {
-        
+
 
         if (ParticipantSubmission.SecondRounders.Any(entry => String.IsNullOrWhiteSpace(entry)))
         {
@@ -494,9 +495,9 @@ else
     protected override async Task OnInitAsync()
     {
         teams = await Http.GetJsonAsync<Team[]>("/sample-data/teams.json");
-        groups = await Http.GetJsonAsync<Group[]>("/sample-data/groups.json");
+        ParticipantSubmission.Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
 
-        groups.ToList().ForEach(g =>
+        ParticipantSubmission.Groups.ForEach(g =>
         {
             g.Teams = new List<Team>();
             g.Matches = new List<Match>();
