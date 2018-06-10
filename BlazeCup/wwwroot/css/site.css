@@ -10,6 +10,10 @@ app {
     flex-direction: column;
 }
 
+input {
+    text-align: center;
+}
+
 .top-row {
     height: 3.5rem;
     display: flex;
