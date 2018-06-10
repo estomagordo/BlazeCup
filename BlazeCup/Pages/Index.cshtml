@@ -411,7 +411,7 @@ else
 
 @functions {
     private const int partCount = 7;
-    Team[] teams;
+    List<Team> teams;
     int Showing { get; set; } = 0;
     bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false };
     Submission ParticipantSubmission { get; set; } = new Submission();
@@ -525,7 +525,8 @@ else
 
     protected override async Task OnInitAsync()
     {
-        teams = await Http.GetJsonAsync<Team[]>("/sample-data/teams.json");
+        teams = await Http.GetJsonAsync<List<Team>>("/sample-data/teams.json");
+        teams = teams.OrderBy(t => t.Name).ToList();
         ParticipantSubmission.Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
 
         ParticipantSubmission.Groups.ForEach(g =>
