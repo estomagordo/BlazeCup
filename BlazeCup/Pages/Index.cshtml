@@ -8,20 +8,20 @@
 }
 else
 {
-    <div id="container" style="width: 600px;">
+    <div id="container">
         <div class="row" id="part-0" style='display: @(Visible[0] ? "initial" : "none")'>
-            <div class="col-sm-12" style="height: 280px;"><span>This is were all the cool information gets displayed :)</span></div>
+            <div class="col-sm-12 content-part"><span>This is were all the cool information gets displayed :)</span></div>
         </div>
 
         @for (var i = 1; i <= 8; i++)
         {
             <div class="row" id="@String.Format("part-{0}", i)" style='height: 400px; display: @(Visible[i] ? "initial" : "none")'>
-                <div class="col-sm-12" style="height: 280px;"><GroupView group="@(groups[i-1])"></GroupView></div>
+                <div class="col-sm-12 content-part"><GroupView group="@(groups[i-1])"></GroupView></div>
             </div>
         }
 
             <div class="row" id="part-9" style='display: @(Visible[9] ? "initial" : "none")'>
-                <div style="height: 280px;">
+                <div class="content-part">
                     <div class="col-sm-12"><span>Tippa åttondelsfinalisterna</span></div>
                     <div class="row">
                         <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
@@ -58,7 +58,7 @@ else
                 </div>                
             </div>
         <div class="row" id="part-10" style='display: @(Visible[10] ? "initial" : "none")'>
-            <div style="height: 280px;">
+            <div class="content-part">
                 <div class="col-sm-12"><span>Tippa kvartsfinalisterna</span></div>
                 <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
                 <div class="col-sm-12"><TeamDropdownView teams="@teams"></TeamDropdownView></div>
@@ -71,7 +71,7 @@ else
             </div>
         </div>
         <div class="row" id="part-11" style='display: @(Visible[11] ? "initial" : "none")'>
-            <div style="height: 280px;">
+            <div class="content-part">
                 <div class="col-sm-12"><span>Tippa semifinalisterna</span></div>
                 <div class="row">
                     <div class="col-sm-6"><TeamDropdownView teams="@teams"></TeamDropdownView></div>

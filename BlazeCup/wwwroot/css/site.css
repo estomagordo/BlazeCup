@@ -88,6 +88,18 @@ input {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+.goals-prediction {
+    width: 40px;
+}
+
+#container {
+    width: 600px;
+}
+
+.content-part {
+    height: 280px;
+}
+
 @media (max-width: 767.98px) {
     .main .top-row {
         display: none;
