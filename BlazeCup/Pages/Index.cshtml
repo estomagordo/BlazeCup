@@ -4,23 +4,56 @@
 
 @if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || teams == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>Vänta...</em></p>
 }
 else
 {
     <div id="container">
         <div class="row" id="part-0" style='display: @(Visible[0] ? "initial" : "none")'>
-            <div class="col-sm-12 content-part"><span>This is were all the cool information gets displayed :)</span></div>
+            <div class="col-sm-12 content-part">
+                <div class="row">
+                    <h5>Hej och välkomna till VM-tipset! Må bäste tippare vinna.</h5>
+                </div>
+                <div class="row">
+                    <p>
+                        Tippa matchresultatet i samtliga gruppspelsmatcher, samt vilka lag som går till åttonsdelsfinal, kvartsfinal, semifinal och final.<br />
+                        Dessutom ska du tippa vilket lag som vinner turneringen, vilket lag som gör flest mål, samt vilket lag som har turneringens skyttekung.<br />
+                        För de två sistnämnda kategorierna delas full poäng ut till samtliga vinnare om flera länder hamnar på delat högsta målantal.<br />
+                    </p>
+                    <p>
+                        Poäng för gruppspelsmatcherna är som följer:<br /><br />
+
+                        Rätt antal mål för ett lag - 1p<br />
+                        Rätt tecken (dvs du har tippat rätt segrande lag, alternativt korrekt förutsett ett oavgjort resultat) - 2p<br />
+                        Exakt rätt resultat - 2 bonuspoäng extra, för totalt 6p (1p per lagresultat, 2p för rätt tecken, 2p bonus)
+                    </p>
+                    <p>
+                        Poäng för övriga kategorier är:
+
+                        Lag i åttondelsfinal - 2p<br />
+                        Lag i kvartsfinal - 4p<br />
+                        Lag i semifinal - 6p<br />
+                        Lag i final - 8p<br />
+                        Mästare - 10p<br />
+                        Lag med flest gjorda mål - 5p<br />
+                        Lag med bästa målskytten - 5p<br />
+                    </p>
+                </div>
+            </div>
+
         </div>
 
-        @for (var i = 1; i <= 8; i++)
+        @for (var i = 1; i <= 4; i++)
         {
             <div class="row" id="@String.Format("part-{0}", i)" style='display: @(Visible[i] ? "initial" : "none")'>
-                <div class="col-sm-12 content-part"><GroupView group="@(ParticipantSubmission.Groups[i - 1])"></GroupView></div>
+                <div class="col-sm-12 content-part">
+                    <GroupView group="@(ParticipantSubmission.Groups[2*i - 2])"></GroupView>
+                    <GroupView group="@(ParticipantSubmission.Groups[2*i - 1])"></GroupView>
+                </div>
             </div>
         }
 
-        <div class="row" id="part-9" style='display: @(Visible[9] ? "initial" : "none")'>
+        <div class="row" id="part-5" style='display: @(Visible[5] ? "initial" : "none")'>
             <div class="content-part">
                 <div class="col-sm-12"><span>Tippa åttondelsfinalisterna</span></div>
                 <div class="row">
@@ -182,87 +215,83 @@ else
                             }
                         </select>
                     </div>
+                    <div class="col-sm-12"><span>Tippa kvartsfinalisterna</span></div>
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.QuarterFinalist1">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.QuarterFinalist2">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.QuarterFinalist3">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.QuarterFinalist4">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.QuarterFinalist5">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.QuarterFinalist6">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.QuarterFinalist7">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.QuarterFinalist8">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row" id="part-10" style='display: @(Visible[10] ? "initial" : "none")'>
-            <div class="content-part">
-                <div class="col-sm-12"><span>Tippa kvartsfinalisterna</span></div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.QuarterFinalist1">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.QuarterFinalist2">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.QuarterFinalist3">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.QuarterFinalist4">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.QuarterFinalist5">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.QuarterFinalist6">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.QuarterFinalist7">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.QuarterFinalist8">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="part-11" style='display: @(Visible[11] ? "initial" : "none")'>
+        <div class="row" id="part-6" style='display: @(Visible[6] ? "initial" : "none")'>
             <div class="content-part">
                 <div class="col-sm-12"><span>Tippa semifinalisterna</span></div>
                 <div class="row">
@@ -327,43 +356,45 @@ else
                     </div>
                 </div>
                 <div class="col-sm-12"><span>Tippa vinnarna</span></div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.Champion">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.Champion">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>               
                 <div class="col-sm-12"><span>Vilket lag gör flest mål?</span></div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.TopScoringTeam">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.TopScoringTeam">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
                 </div>
                 <div class="col-sm-12"><span>Vilket lag har bästa målskytten?</span></div>
-                <div class="col-sm-12">
-                    <select bind="@ParticipantSubmission.TopScoringPlayerTeam">
-                        <option></option>
-                        @foreach (var team in teams)
-                        {
-                            <option>@team.Name</option>
-                        }
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="part-12" style='display: @(Visible[12] ? "initial" : "none")'>
-            <div class="col-sm-12 content-part">
                 <div class="row">
+                    <div class="col-sm-12">
+                        <select bind="@ParticipantSubmission.TopScoringPlayerTeam">
+                            <option></option>
+                            @foreach (var team in teams)
+                            {
+                                <option>@team.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row personal-data-entry">
                     <input bind="@ParticipantSubmission.Name" placeholder="Namn" />
                 </div>
-                <div class="row">
+                <div class="row personal-data-entry">
                     <input type="email" bind="@ParticipantSubmission.Email" placeholder="Epost" />
                 </div>
                 <div style='display: @(!SubmissionValid() ? "initial" : "none")'>
@@ -374,15 +405,15 @@ else
                 </div>
             </div>
         </div>
-        <button onclick="@CycleBack" class="btn btn-default">Föregående</button><button onclick="@CycleForward" class="btn btn-default float-right">Nästa</button>
+        <button onclick="@CycleBack" class="btn btn-primary">Föregående</button><button onclick="@CycleForward" class="btn btn-primary float-right">Nästa</button>
     </div>
 }
 
 @functions {
-    private const int partCount = 13;
+    private const int partCount = 7;
     Team[] teams;
     int Showing { get; set; } = 0;
-    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false, false, false, false, false, false, false };
+    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false };
     Submission ParticipantSubmission { get; set; } = new Submission();
     private const string SubmissionUrl = @"https://prod-11.northeurope.logic.azure.com:443/workflows/161819e8b13147f997217940ed56d337/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ymly_IacXujJaB-YGi7xVRKsN3edJ1MVY86xDWSnmFU";
 

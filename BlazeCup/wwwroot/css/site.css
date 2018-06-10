@@ -97,7 +97,15 @@ input {
 }
 
 .content-part {
-    height: 280px;
+    height: 580px;
+}
+
+.group-game {
+    margin-bottom: 5px;
+}
+
+.personal-data-entry {
+    margin: 3px 0;
 }
 
 @media (max-width: 767.98px) {

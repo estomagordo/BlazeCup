@@ -6,7 +6,7 @@
 
 @foreach (var match in group.Matches)
 {
-<div class="row">
+<div class="row group-game">
     <div class="col-sm-4">@match.Home.Name</div>
     <div class="col-sm-1"><img src="@match.Home.FlagUrl" /></div>
     <div class="col-sm-1"><input type="number" min="0" class="goals-prediction" bind="@match.HomePredictedGoals" /></div>
