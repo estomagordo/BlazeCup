@@ -1,18 +1,19 @@
 ﻿@using Models
 
 <div class="row">
-    <div class="col-sm-6">@group.Name</div>
+    <div class="col-sm-6 font-weight-bold">@group.Name</div>
 </div>
 
 @foreach (var match in group.Matches)
 {
 <div class="row group-game">
-    <div class="col-sm-4">@match.Home.Name</div>
+    <div class="col-sm-3">@match.Home.Name</div>
     <div class="col-sm-1"><img src="@match.Home.FlagUrl" /></div>
     <div class="col-sm-1"><input type="number" min="0" class="goals-prediction" bind="@match.HomePredictedGoals" /></div>
-    <div class="col-sm-4">@match.Away.Name</div>
-    <div class="col-sm-1"><img src="@match.Away.FlagUrl" /></div>
     <div class="col-sm-1"><input type="number" min="0" class="goals-prediction" bind="@match.AwayPredictedGoals" /></div>
+    <div class="col-sm-1"><img src="@match.Away.FlagUrl" /></div>
+    <div class="col-sm-3">@match.Away.Name</div>  
+    
 </div>
 }
 
