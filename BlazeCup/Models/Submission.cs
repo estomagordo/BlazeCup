@@ -82,5 +82,13 @@ namespace BlazeCup.Models
                 return new List<string>() { Finalist1, Finalist2 };
             }
         }
+
+        public List<string> ActualSecondRounders { get; set; }
+        public List<string> ActualQuarterfinalists { get; set; }
+        public List<string> ActualSemifinalists { get; set; }
+        public List<string> ActualFinalists { get; set; }
+        public string ActualChampion { get; set; }
+        public string ActualTopScoringTeam { get; set; }
+        public string ActualTopScoringPlayerTeam { get; set; }
     }
 }
