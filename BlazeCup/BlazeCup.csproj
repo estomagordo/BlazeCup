@@ -31,4 +31,8 @@
     <BlazorGenerate Remove="Pages\GroupView.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\BlazeCup.Logic.csproj" />
+  </ItemGroup>
+
 </Project>

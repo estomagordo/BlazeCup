@@ -1,0 +1,62 @@
+﻿@using  Models
+@using BlazeCup.Logic
+
+@functions {
+
+    [Parameter]
+    private List<Submission> submissions { get; set; }
+
+    private int ScoreSubmission(Submission submission)
+    {
+        var score = 0;
+
+        foreach (var group in submission.Groups)
+        {
+            foreach (var match in group.Matches)
+            {
+                if (match.HomeActualGoals >= 0 && match.AwayActualGoals >= 0)
+                {
+                    score += Scoring.ScoreGame(match.HomePredictedGoals, match.AwayPredictedGoals, match.HomeActualGoals, match.AwayActualGoals);
+                }
+            }
+        }
+
+        if (submission.ActualSecondRounders != null && submission.ActualSecondRounders.Any())
+        {
+            score += Scoring.ScoreSecondRound(submission.SecondRounders, submission.ActualSecondRounders);
+        }
+
+        if (submission.ActualQuarterfinalists != null && submission.ActualQuarterfinalists.Any())
+        {
+            score += Scoring.ScoreQuarterFinal(submission.QuarterFinalists, submission.ActualQuarterfinalists);
+        }
+
+        if (submission.ActualSemifinalists != null && submission.ActualSemifinalists.Any())
+        {
+            score += Scoring.ScoreSemiFinal(submission.SemiFinalists, submission.ActualSemifinalists);
+        }
+
+        if (submission.ActualFinalists != null && submission.ActualFinalists.Any())
+        {
+            score += Scoring.ScoreFinal(submission.Finalists, submission.ActualFinalists);
+        }
+
+        if (submission.ActualChampion != null && !string.IsNullOrWhiteSpace(submission.ActualChampion))
+        {
+            score += Scoring.ScoreChampion(submission.Champion, submission.ActualChampion);
+        }
+
+        if (submission.ActualTopScoringTeam != null && !string.IsNullOrWhiteSpace(submission.ActualTopScoringTeam))
+        {
+            score += Scoring.ScoreHighestScoringTeam(submission.TopScoringTeam, submission.ActualTopScoringTeam);
+        }
+
+        if (submission.ActualTopScoringPlayerTeam != null && !string.IsNullOrWhiteSpace(submission.ActualTopScoringPlayerTeam))
+        {
+            score += Scoring.ScoreHighestScoringPlayer(submission.TopScoringPlayerTeam, submission.ActualTopScoringPlayerTeam);
+        }
+
+        return score;
+    }
+
+}
