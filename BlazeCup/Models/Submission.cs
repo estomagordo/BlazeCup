@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlazeCup.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -90,5 +91,61 @@ namespace BlazeCup.Models
         public string ActualChampion { get; set; }
         public string ActualTopScoringTeam { get; set; }
         public string ActualTopScoringPlayerTeam { get; set; }
+
+        public int Score
+        {
+            get
+            {
+                var score = 0;
+
+                foreach (var group in Groups)
+                {
+                    foreach (var match in group.Matches)
+                    {
+                        if (match.HomeActualGoals >= 0 && match.AwayActualGoals >= 0)
+                        {
+                            score += Scoring.ScoreGame(match.HomePredictedGoals, match.AwayPredictedGoals, match.HomeActualGoals, match.AwayActualGoals);
+                        }
+                    }
+                }
+
+                if (ActualSecondRounders != null && ActualSecondRounders.Any())
+                {
+                    score += Scoring.ScoreSecondRound(SecondRounders, ActualSecondRounders);
+                }
+
+                if (ActualQuarterfinalists != null && ActualQuarterfinalists.Any())
+                {
+                    score += Scoring.ScoreQuarterFinal(QuarterFinalists, ActualQuarterfinalists);
+                }
+
+                if (ActualSemifinalists != null && ActualSemifinalists.Any())
+                {
+                    score += Scoring.ScoreSemiFinal(SemiFinalists, ActualSemifinalists);
+                }
+
+                if (ActualFinalists != null && ActualFinalists.Any())
+                {
+                    score += Scoring.ScoreFinal(Finalists, ActualFinalists);
+                }
+
+                if (ActualChampion != null && !string.IsNullOrWhiteSpace(ActualChampion))
+                {
+                    score += Scoring.ScoreChampion(Champion, ActualChampion);
+                }
+
+                if (ActualTopScoringTeam != null && !string.IsNullOrWhiteSpace(ActualTopScoringTeam))
+                {
+                    score += Scoring.ScoreHighestScoringTeam(TopScoringTeam, ActualTopScoringTeam);
+                }
+
+                if (ActualTopScoringPlayerTeam != null && !string.IsNullOrWhiteSpace(ActualTopScoringPlayerTeam))
+                {
+                    score += Scoring.ScoreHighestScoringPlayer(TopScoringPlayerTeam, ActualTopScoringPlayerTeam);
+                }
+
+                return score;
+            }            
+        }
     }
 }
