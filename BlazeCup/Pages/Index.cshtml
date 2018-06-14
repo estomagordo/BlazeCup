@@ -3,9 +3,9 @@
 @inject HttpClient Http
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 
-@if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || teams == null)
+@if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || teams == null || true)
 {
-    <p><em>Vänta...</em></p>
+    <p><em>Tack för era bidrag! Titta tillbaka snart för att följa poängställningen!</em></p>
 }
 else
 {
@@ -401,7 +401,7 @@ else
                 <div style='display: @(!SubmissionValid() ? "initial" : "none")'>
                     <span>Du måste fylla i hela tipset korrekt för att kunna skicka in.</span>
                 </div>
-                <div style='display: @(SubmissionValid() ? "initial" : "none")'>
+                <div style='display: @(SubmissionValid() ? "none" : "none")'>
                     <button onclick="@Submit" class="btn btn-success">Skicka in tips</button>
                 </div>
             </div>
