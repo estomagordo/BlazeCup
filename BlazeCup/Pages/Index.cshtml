@@ -3,7 +3,11 @@
 @inject HttpClient Http
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 
-@if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || teams == null || true)
+@if (true)
+{
+    <p>Snart så!</p>
+}
+else if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || teams == null)
 {
     <p><em>Tack för era bidrag! Titta tillbaka snart för att följa poängställningen!</em></p>
 }
@@ -64,7 +68,7 @@ else
                             @foreach (var team in teams)
                             {
                                 <option>@team.Name</option>
-                            }
+}
                         </select>
                     </div>
                     <div class="col-sm-6">
