@@ -34,7 +34,10 @@
       [ "Portugal", "Marocko" ],
       [ "Iran", "Spanien" ],
       [ "Iran", "Portugal" ],
-      [ "Spanien", "Marocko" ]
+      [ "Spanien", "Marocko" ],
+      "PlayedMatches": [
+      ["Marocko", "Iran", "0", "1"]
+
     ]
   },
   {
