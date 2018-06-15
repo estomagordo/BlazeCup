@@ -12,5 +12,6 @@ namespace BlazeCup.Models
         public List<Team> Teams { get; set; }
         public List<List<string>> MatchNames { get; set; }
         public List<Match> Matches { get; set; }
+        public List<List<string>> PlayedMatches { get; set; }
     }
 }
