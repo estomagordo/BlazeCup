@@ -77,7 +77,10 @@
       [ "Nigeria", "Island" ],
       [ "Nigeria", "Argentina" ],
       [ "Island", "Kroatien" ]
-    ]
+    ],
+    "PlayedMatches": [
+      ["Argentina", "Island", "1", "1"]
+      ]
   },
   {
     "Name": "Grupp E",
