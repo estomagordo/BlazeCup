@@ -57,7 +57,10 @@
       [ "Frankrike", "Peru" ],
       [ "Danmark", "Frankrike" ],
       [ "Australien", "Peru" ]
-    ]
+    ],
+    "PlayedMatches": [
+      ["Frankrike", "Australien", "2", "1"]
+      ]
   },
   {
     "Name": "Grupp D",
