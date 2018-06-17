@@ -119,6 +119,9 @@
       [ "Tyskland", "Sverige" ],
       [ "Sydkorea", "Tyskland" ],
       [ "Mexiko", "Sverige" ]
+    ],
+    "PlayedMatches": [
+      ["Tyskland", "Mexiko", "0", "1"]  
     ]
   },
   {
