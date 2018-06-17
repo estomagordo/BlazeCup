@@ -3,4 +3,566 @@
 @inject HttpClient Http
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 
-<Standings></Standings>
+@if (Teams == null || Groups == null || Submissions == null)
+{
+    <p><em>Snart så</em></p>
+    @(Teams == null) @(Groups == null) @(Submissions == null)
+}
+else
+{
+    <div style='display: @(ActivePage == Page.Landing ? "initial" : "none")'>
+        <button class="btn btn-primary" onclick="@ViewStandings">Se poängställningen</button>
+        <input type="text" placeholder="Hämta upp din tipsrad" onchange=@(e => EmailFieldChanged(e)) />
+    </div>
+    @*<div style='@(ActivePage == Page.Registration ? string.Empty : "display: none")'>
+        <Registration ParticipantSubmission="@(new Submission())" Locked="@false"></Registration>
+    </div>*@
+    <div style='@(ActivePage == Page.ViewSubmission ? string.Empty : "display: none")'>
+        @*<Registration ParticipantSubmission="@ParticipantSubmission" Locked="@true"></Registration>*@
+        @if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || Teams == null)
+        {
+            @*<p><em>@(ParticipantSubmission.Groups == null)</em></p>*@
+        }
+        else
+        {
+            <div id="container">
+                <div class="row" id="part-0" style='display: @(Visible[0] ? "initial" : "none")'>
+                    <div class="col-sm-12 content-part">
+                        <div class="row">
+                            <h5>Hej och välkomna till VM-tipset! Må bäste tippare vinna.</h5>
+                        </div>
+                        <div class="row">
+                            <p>
+                                Tippa matchresultatet i samtliga gruppspelsmatcher, samt vilka lag som går till åttonsdelsfinal, kvartsfinal, semifinal och final.<br />
+                                Dessutom ska du tippa vilket lag som vinner turneringen, vilket lag som gör flest mål, samt vilket lag som har turneringens skyttekung.<br />
+                                För de två sistnämnda kategorierna delas full poäng ut till samtliga vinnare om flera länder hamnar på delat högsta målantal.<br />
+                            </p>
+                            <p>
+                                Poäng för gruppspelsmatcherna är som följer:<br /><br />
+
+                                Rätt antal mål för ett lag - 1p<br />
+                                Rätt tecken - 2p bonus<br />
+                                Exakt rätt resultat - 2p bonus
+                            </p>
+                            <p>
+                                Poäng för övriga kategorier är:
+
+                                Lag i åttondelsfinal - 2p<br />
+                                Lag i kvartsfinal - 4p<br />
+                                Lag i semifinal - 6p<br />
+                                Lag i final - 8p<br />
+                                Mästare - 10p<br />
+                                Lag med flest gjorda mål - 5p<br />
+                                Lag med bästa målskytten - 5p<br />
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                @for (var i = 1; i <= 4; i++)
+                {
+                    <div class="row" id="@String.Format("part-{0}", i)" style='display: @(Visible[i] ? "initial" : "none")'>
+                        <div class="col-sm-12 content-part">
+                            <GroupView group="@(ParticipantSubmission.Groups[2*i - 2])"></GroupView>
+                            <GroupView group="@(ParticipantSubmission.Groups[2*i - 1])"></GroupView>
+                        </div>
+                    </div>
+                }
+
+                <div class="row" id="part-5" style='display: @(Visible[5] ? "initial" : "none")'>
+                    <div class="content-part">
+                        <div class="col-sm-12"><span class="font-weight-bold">Tippa åttondelsfinalisterna</span></div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound1">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound2">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound3">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound4">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound5">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound6">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound7">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound8">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound9">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound10">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound11">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound12">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound13">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound14">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound15">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SecondRound16">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-12"><span class="font-weight-bold">Tippa kvartsfinalisterna</span></div>
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.QuarterFinalist1">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.QuarterFinalist2">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.QuarterFinalist3">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.QuarterFinalist4">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.QuarterFinalist5">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.QuarterFinalist6">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.QuarterFinalist7">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.QuarterFinalist8">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="part-6" style='display: @(Visible[6] ? "initial" : "none")'>
+                    <div class="content-part">
+                        <div class="col-sm-12"><span class="font-weight-bold">Tippa semifinalisterna</span></div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SemiFinalist1">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SemiFinalist2">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SemiFinalist3">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.SemiFinalist4">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12"><span class="font-weight-bold">Tippa finalisterna</span></div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.Finalist1">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <select bind="@ParticipantSubmission.Finalist2">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12"><span class="font-weight-bold">Tippa vinnarna</span></div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.Champion">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12"><span class="font-weight-bold">Vilket lag gör flest mål?</span></div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.TopScoringTeam">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12"><span class="font-weight-bold">Vilket lag har bästa målskytten?</span></div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <select bind="@ParticipantSubmission.TopScoringPlayerTeam">
+                                    <option></option>
+                                    @foreach (var team in Teams)
+                                    {
+                                        <option>@team.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row personal-data-entry">
+                            <input bind="@ParticipantSubmission.Name" placeholder="Namn" />
+                        </div>
+                        <div class="row personal-data-entry">
+                            <input type="email" bind="@ParticipantSubmission.Email" placeholder="Epost" />
+                        </div>
+                        <div id="submission-section" style='display: @(Locked ? "none" : "initial")'>
+                            <div style='display: @(!ParticipantSubmission.Valid() ? "initial" : "none")'>
+                                <span>Du måste fylla i hela tipset korrekt för att kunna skicka in.</span>
+                            </div>
+                            <div style='display: @(ParticipantSubmission.Valid() ? "none" : "none")'>
+                                <button onclick="@Submit" class="btn btn-success">Skicka in tips</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="@CycleBack" class="btn btn-primary">Föregående</button><button onclick="@CycleForward" class="btn btn-primary float-right">Nästa</button>
+            </div>
+        }
+    </div>
+    <div style='@(ActivePage == Page.Standings ? string.Empty : "display: none")'>
+        <Standings Groups="@Groups" Teams="@Teams" Submissions="@Submissions" PlayedMatchCount="@PlayedMatchCount"></Standings>
+    </div>
+}
+
+@functions {
+
+    Submission ParticipantSubmission { get; set; } = null;
+    List<Submission> Submissions { get; set; }
+    List<Group> Groups { get; set; }
+    List<Team> Teams { get; set; }
+    private int PlayedMatchCount { get; set; } = 0;
+
+    bool Locked { get; set; } = true;
+
+    private const int partCount = 7;
+    int Showing { get; set; } = 0;
+    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false };
+
+    private const string SubmissionUrl = @"https://prod-11.northeurope.logic.azure.com:443/workflows/161819e8b13147f997217940ed56d337/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ymly_IacXujJaB-YGi7xVRKsN3edJ1MVY86xDWSnmFU";
+
+    private enum Page
+    {
+        Landing,
+        Registration,
+        ViewSubmission,
+        Standings
+    }
+
+    private Page ActivePage { get; set; } = Page.Landing;
+
+    private void ViewStandings()
+    {
+        ActivePage = Page.Standings;
+    }
+
+    private void EmailFieldChanged(UIChangeEventArgs e)
+    {
+        var newValue = e.Value.ToString();
+        var matchingSubmission = Submissions.FirstOrDefault(s => s.Email == newValue);
+
+        if (matchingSubmission != null)
+        {
+            ParticipantSubmission = matchingSubmission;
+            Console.WriteLine("In index");
+            Console.WriteLine(ParticipantSubmission.Groups.Count);
+            ActivePage = Page.ViewSubmission;
+        }
+    }
+
+    void CycleParts(int steps)
+    {
+        Showing = (Showing + steps + partCount) % partCount;
+
+        for (var i = 0; i < partCount; i++)
+        {
+            Visible[i] = i == Showing;
+        }
+    }
+
+    void CycleBack()
+    {
+        CycleParts(-1);
+    }
+
+    void CycleForward()
+    {
+        CycleParts(1);
+    }
+
+    async Task Submit()
+    {
+        await Http.SendJsonAsync(HttpMethod.Post, SubmissionUrl, ParticipantSubmission);
+        UriHelper.NavigateTo("/thanks");
+    }
+
+    protected override async Task OnInitAsync()
+    {
+        Teams = await Http.GetJsonAsync<List<Team>>("/sample-data/Teams.json");
+        Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
+
+        Groups.ForEach(g =>
+        {
+            g.Teams = new List<Team>();
+            g.Matches = new List<Match>();
+
+            g.TeamNames.ForEach(tn =>
+            {
+                g.Teams.Add(Teams.First(t => t.Name == tn));
+            });
+
+            g.MatchNames.ForEach(mn =>
+            {
+                g.Matches.Add(new Match()
+                {
+                    Home = Teams.First(t => t.Name == mn[0]),
+                    Away = Teams.First(t => t.Name == mn[1])
+                });
+            });
+        });
+
+        Submissions = await Http.GetJsonAsync<List<Submission>>("sample-data/submissions.json");
+
+        Submissions.ForEach(s =>
+        {
+            s.Groups.ForEach(g =>
+            {
+                var actualGroup = Groups.First(ag => ag.Name == g.Name);
+
+                g.Matches.ForEach(m =>
+                {
+                    if (actualGroup.PlayedMatches != null)
+                    {
+                        var matchingMatch = actualGroup.PlayedMatches.FirstOrDefault(pm => pm[0] == m.Home.Name && pm[1] == m.Away.Name);
+                        if (matchingMatch == null)
+                        {
+                            m.HomeActualGoals = -1;
+                            m.AwayActualGoals = -1;
+                        }
+                        else
+                        {
+                            PlayedMatchCount++;
+                            m.HomeActualGoals = int.Parse(matchingMatch[2]);
+                            m.AwayActualGoals = int.Parse(matchingMatch[3]);
+                        }
+                    }
+                    else
+                    {
+                        m.HomeActualGoals = -1;
+                        m.AwayActualGoals = -1;
+                    }
+                });
+            });
+        });
+
+        Submissions = Submissions.OrderBy(s => s.Score * -1).ThenBy(s => s.Name).ToList();
+    }
+}

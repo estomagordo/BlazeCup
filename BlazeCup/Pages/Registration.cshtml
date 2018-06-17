@@ -5,7 +5,7 @@
 
 @if (ParticipantSubmission == null || ParticipantSubmission.Groups == null || ParticipantSubmission.Groups.Count != 8 || teams == null)
 {
-<p><em>Vänta...</em></p>
+<p><em>@(ParticipantSubmission.Groups == null)</em></p>
 }
 else
 {
@@ -398,12 +398,14 @@ else
             <div class="row personal-data-entry">
                 <input type="email" bind="@ParticipantSubmission.Email" placeholder="Epost" />
             </div>
-            <div style='display: @(!ParticipantSubmission.Valid() ? "initial" : "none")'>
-                <span>Du måste fylla i hela tipset korrekt för att kunna skicka in.</span>
-            </div>
-            <div style='display: @(ParticipantSubmission.Valid() ? "none" : "none")'>
-                <button onclick="@Submit" class="btn btn-success">Skicka in tips</button>
-            </div>
+            <div id="submission-section" style='display: @(Locked ? "none" : "initial")'>
+                <div style='display: @(!ParticipantSubmission.Valid() ? "initial" : "none")'>
+                    <span>Du måste fylla i hela tipset korrekt för att kunna skicka in.</span>
+                </div>
+                <div style='display: @(ParticipantSubmission.Valid() ? "none" : "none")'>
+                    <button onclick="@Submit" class="btn btn-success">Skicka in tips</button>
+                </div>
+            </div>            
         </div>
     </div>
     <button onclick="@CycleBack" class="btn btn-primary">Föregående</button><button onclick="@CycleForward" class="btn btn-primary float-right">Nästa</button>
@@ -412,63 +414,75 @@ else
 
 @functions {
 
-private const int partCount = 7;
-List<Team> teams;
-int Showing { get; set; } = 0;
-bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false };
-Submission ParticipantSubmission { get; set; } = new Submission();
-private const string SubmissionUrl = @"https://prod-11.northeurope.logic.azure.com:443/workflows/161819e8b13147f997217940ed56d337/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ymly_IacXujJaB-YGi7xVRKsN3edJ1MVY86xDWSnmFU";
+    [Parameter]
+    Submission ParticipantSubmission { get; set; }
 
-void CycleParts(int steps)
-{
-    Showing = (Showing + steps + partCount) % partCount;
+    [Parameter]
+    bool Locked { get; set; }
 
-    for (var i = 0; i < partCount; i++)
+    private const int partCount = 7;
+    List<Team> teams;
+    int Showing { get; set; } = 0;
+    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false, false };
+
+    private const string SubmissionUrl = @"https://prod-11.northeurope.logic.azure.com:443/workflows/161819e8b13147f997217940ed56d337/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ymly_IacXujJaB-YGi7xVRKsN3edJ1MVY86xDWSnmFU";
+
+    void CycleParts(int steps)
     {
-        Visible[i] = i == Showing;
+        Showing = (Showing + steps + partCount) % partCount;
+
+        for (var i = 0; i < partCount; i++)
+        {
+            Visible[i] = i == Showing;
+        }
     }
-}
 
-void CycleBack()
-{
-    CycleParts(-1);
-}
-
-void CycleForward()
-{
-    CycleParts(1);
-}
-
-async Task Submit()
-{
-    await Http.SendJsonAsync(HttpMethod.Post, SubmissionUrl, ParticipantSubmission);
-    UriHelper.NavigateTo("/thanks");
-}
-
-protected override async Task OnInitAsync()
-{
-    teams = await Http.GetJsonAsync<List<Team>>("/sample-data/teams.json");
-    teams = teams.OrderBy(t => t.Name).ToList();
-    ParticipantSubmission.Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
-
-    ParticipantSubmission.Groups.ForEach(g =>
+    void CycleBack()
     {
-        g.Teams = new List<Team>();
-        g.Matches = new List<Match>();
+        CycleParts(-1);
+    }
 
-        g.TeamNames.ForEach(tn =>
-        {
-            g.Teams.Add(teams.First(t => t.Name == tn));
-        });
+    void CycleForward()
+    {
+        CycleParts(1);
+    }
 
-        g.MatchNames.ForEach(mn =>
-        {
-            g.Matches.Add(new Match()
-            {
-                Home = teams.First(t => t.Name == mn[0]),
-                Away = teams.First(t => t.Name == mn[1])
-            });
-        });
-    });
-}
+    async Task Submit()
+    {
+        await Http.SendJsonAsync(HttpMethod.Post, SubmissionUrl, ParticipantSubmission);
+        UriHelper.NavigateTo("/thanks");
+    }
+
+    //protected override async Task OnInitAsync()
+    //{
+    //    isLocked = ParticipantSubmission.Groups != null && ParticipantSubmission.Groups.Any();
+    //    Console.WriteLine(isLocked);
+    //    teams = await Http.GetJsonAsync<List<Team>>("/sample-data/teams.json");
+    //    teams = teams.OrderBy(t => t.Name).ToList();
+
+    //    if (!isLocked)
+    //    {
+    //        ParticipantSubmission.Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
+
+    //        ParticipantSubmission.Groups.ForEach(g =>
+    //        {
+    //            g.Teams = new List<Team>();
+    //            g.Matches = new List<Match>();
+
+    //            g.TeamNames.ForEach(tn =>
+    //            {
+    //                g.Teams.Add(teams.First(t => t.Name == tn));
+    //            });
+
+    //            g.MatchNames.ForEach(mn =>
+    //            {
+    //                g.Matches.Add(new Match()
+    //                {
+    //                    Home = teams.First(t => t.Name == mn[0]),
+    //                    Away = teams.First(t => t.Name == mn[1])
+    //                });
+    //            });
+    //        });
+    //    }
+    //}
 }
