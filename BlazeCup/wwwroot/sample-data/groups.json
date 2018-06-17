@@ -59,7 +59,8 @@
       [ "Australien", "Peru" ]
     ],
     "PlayedMatches": [
-      ["Frankrike", "Australien", "2", "1"]
+      ["Frankrike", "Australien", "2", "1"],
+      ["Peru", "Danmark", "0", "1"]
       ]
   },
   {
@@ -79,7 +80,8 @@
       [ "Island", "Kroatien" ]
     ],
     "PlayedMatches": [
-      ["Argentina", "Island", "1", "1"]
+      ["Argentina", "Island", "1", "1"],
+      ["Kroatien", "Nigeria", "2", "0"]
       ]
   },
   {
