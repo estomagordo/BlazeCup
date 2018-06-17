@@ -147,5 +147,83 @@ namespace BlazeCup.Models
                 return score;
             }            
         }
+
+        public bool Valid()
+        {
+            if (SecondRounders.Any(entry => String.IsNullOrWhiteSpace(entry)))
+            {
+                return false;
+            }
+
+            if (SecondRounders.GroupBy(n => n).Any(c => c.Count() > 1))
+            {
+                return false;
+            }
+
+            if (QuarterFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+            {
+                return false;
+            }
+
+            if (QuarterFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
+            {
+                return false;
+            }
+
+            if (SemiFinalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+            {
+                return false;
+            }
+
+            if (SemiFinalists.GroupBy(n => n).Any(c => c.Count() > 1))
+            {
+                return false;
+            }
+
+            if (Finalists.Any(entry => String.IsNullOrWhiteSpace(entry)))
+            {
+                return false;
+            }
+
+            if (Finalists.GroupBy(n => n).Any(c => c.Count() > 1))
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(Champion))
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TopScoringTeam))
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TopScoringPlayerTeam))
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(Name))
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(Email))
+            {
+                return false;
+            }
+
+            try
+            {
+                var address = new System.Net.Mail.MailAddress(Email);
+                return address.Address == Email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
