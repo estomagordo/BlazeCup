@@ -17,7 +17,8 @@ else
         <Registration ParticipantSubmission="@(new Submission())" Locked="@false"></Registration>
     </div>*@
     <div style='@(ActivePage == Page.ViewSubmission ? string.Empty : "display: none")'>
-        <SubmissionView ParticipantSubmission="@ParticipantSubmission"></SubmissionView>        
+        <SubmissionView ParticipantSubmission="@ParticipantSubmission"></SubmissionView>
+        <button id="to-landing" class="btn btn-primary" onclick="@ToLanding">Tillbaka till startsidan</button>
     </div>
     <div style='@(ActivePage == Page.Standings ? string.Empty : "display: none")'>
         <Standings Groups="@Groups" Teams="@Teams" Submissions="@Submissions" PlayedMatchCount="@PlayedMatchCount"></Standings>
@@ -31,7 +32,7 @@ else
     List<Group> Groups { get; set; }
     List<Team> Teams { get; set; }
     private int PlayedMatchCount { get; set; } = 0;
-    private bool Loaded { get; set; } = false;    
+    private bool Loaded { get; set; } = false;
 
     private enum Page
     {
@@ -48,6 +49,11 @@ else
         ActivePage = Page.Standings;
     }
 
+    private void ToLanding()
+    {
+        ActivePage = Page.Landing;
+    }
+
     private void EmailFieldChanged(UIChangeEventArgs e)
     {
         var newValue = e.Value.ToString();
@@ -60,7 +66,7 @@ else
             Console.WriteLine(ParticipantSubmission.Groups.Count);
             ActivePage = Page.ViewSubmission;
         }
-    }    
+    }
 
     protected override async Task OnInitAsync()
     {

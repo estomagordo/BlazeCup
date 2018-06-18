@@ -14,6 +14,10 @@ input {
     text-align: center;
 }
 
+#to-landing {
+    margin-top: 80px;
+}
+
 .top-row {
     height: 3.5rem;
     display: flex;
