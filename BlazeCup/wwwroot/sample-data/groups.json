@@ -141,7 +141,10 @@
       [ "England", "Panama" ],
       [ "England", "Belgien" ],
       [ "Panama", "Tunisien" ]
-    ]
+    ],
+    "PlayedMatches": [
+      ["Belgien", "Panama", "3", "0"]
+      ]
   },
   {
     "Name": "Grupp H",
