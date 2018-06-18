@@ -18,6 +18,26 @@ input {
     margin-top: 80px;
 }
 
+.match-points-0 {
+    background-color: #800;
+}
+
+.match-points-1 {
+    background-color: #ee0;
+}
+
+.match-points-2 {
+    background-color: #0d0;
+}
+
+.match-points-3 {
+    background-color: #0b0;
+}
+
+.match-points-6 {
+    background-color: #090;
+}
+
 .top-row {
     height: 3.5rem;
     display: flex;
