@@ -2,20 +2,27 @@
 
 <h4>Ställning efter @(PlayedMatchCount / Submissions.Count) match@(PlayedMatchCount / Submissions.Count == 1 ? "" : "er")</h4>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-1">
+        Position
+    </div>
+    <div class="col-sm-3">
         Namn
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-1">
         Poäng
     </div>
 </div>
-@foreach (var submission in Submissions)
+@for (var i = 0; i < Submissions.Count; i++)
 {
+    var submission = Submissions[i];
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-1">
+            @(i + 1)
+        </div>
+        <div class="col-sm-3">
             @submission.Name
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-1">
             @submission.Score
         </div>
     </div>
