@@ -6,7 +6,6 @@
 @if (!Loaded)
 {
     <p><em>Snart så</em></p>
-    @(Teams == null) @(Groups == null) @(Submissions == null)
 }
 else
 {
@@ -32,13 +31,7 @@ else
     List<Group> Groups { get; set; }
     List<Team> Teams { get; set; }
     private int PlayedMatchCount { get; set; } = 0;
-    private bool Loaded { get; set; } = false;
-
-    bool Locked { get; set; } = true;
-
-    private const int partCount = 6;
-    int Showing { get; set; } = 0;
-    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false };
+    private bool Loaded { get; set; } = false;    
 
     private enum Page
     {
@@ -67,34 +60,13 @@ else
             Console.WriteLine(ParticipantSubmission.Groups.Count);
             ActivePage = Page.ViewSubmission;
         }
-    }
-
-    void CycleParts(int steps)
-    {
-        Showing = (Showing + steps + partCount) % partCount;
-
-        for (var i = 0; i < partCount; i++)
-        {
-            Visible[i] = i == Showing;
-        }
-    }
-
-    void CycleBack()
-    {
-        CycleParts(-1);
-    }
-
-    void CycleForward()
-    {
-        CycleParts(1);
-    }
+    }    
 
     protected override async Task OnInitAsync()
     {
         Teams = await Http.GetJsonAsync<List<Team>>("/sample-data/Teams.json");
-        Console.WriteLine(Teams.Count);
         Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
-        Console.WriteLine(Groups.Count);
+
         Groups.ForEach(g =>
         {
             g.Teams = new List<Team>();
@@ -116,7 +88,6 @@ else
         });
 
         Submissions = await Http.GetJsonAsync<List<Submission>>("sample-data/submissions.json");
-        Console.WriteLine(Submissions.Count);
 
         Submissions.ForEach(s =>
         {
@@ -153,7 +124,6 @@ else
         Submissions = Submissions.OrderBy(s => s.Score * -1).ThenBy(s => s.Name).ToList();
 
         ParticipantSubmission = Submissions.First();
-        Console.WriteLine(ParticipantSubmission.Name);
 
         Loaded = true;
     }
