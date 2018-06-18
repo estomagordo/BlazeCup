@@ -18,6 +18,22 @@ input {
     margin-top: 80px;
 }
 
+.standings-table {
+    width: 360px;
+}
+
+.gold {
+    background-color: #CFB53B;
+}
+
+.silver {
+    background-color: #E6E8FA;
+}
+
+.bronze {
+    background-color: #8C7853;
+}
+
 .match-points-0 {
     background-color: #800;
 }
