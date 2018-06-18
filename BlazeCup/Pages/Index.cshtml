@@ -22,6 +22,7 @@ else
     </div>
     <div style='@(ActivePage == Page.Standings ? string.Empty : "display: none")'>
         <Standings Groups="@Groups" Teams="@Teams" Submissions="@Submissions" PlayedMatchCount="@PlayedMatchCount"></Standings>
+        <button id="to-landing" class="btn btn-primary" onclick="@ToLanding">Tillbaka till startsidan</button>
     </div>
 }
 
