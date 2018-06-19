@@ -164,7 +164,8 @@
       [ "Senegal", "Colombia" ]
       ],
         "PlayedMatches": [
-          ["Colombia", "Japan", "1", "2"]
+          ["Colombia", "Japan", "1", "2"],
+          ["Polen", "Senegal", "1", "2"]
         ]    
   }
 ]
