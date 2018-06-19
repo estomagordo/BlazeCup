@@ -14,72 +14,197 @@ namespace BlazeCup.Models
         public List<Match> Matches { get; set; }
         public List<List<string>> PlayedMatches { get; set; }
 
-        public List<Team> Ranking
-        {
-            get
+        public List<Team> Ranking()
+        {            
+            (var rankedTeams, var points) = RankStraight(Teams, PlayedMatches);
+
+            if (points[rankedTeams[0]] == points[rankedTeams[1]])
             {
-                (var rankedTeams, var points) = RankStraight(Teams);
-
-                if (points[rankedTeams[0]] == points[rankedTeams[1]])
+                if (points[rankedTeams[1]] == points[rankedTeams[2]])
                 {
-                    if (points[rankedTeams[1]] == points[rankedTeams[2]])
-                    {
-                        if (points[rankedTeams[2]] == points[rankedTeams[3]])
-                        {
-                            return rankedTeams;
-                        }
-
-                        var rerankedTeams = RankAggregate(rankedTeams.Take(3).ToList());
-                        rerankedTeams.Add(rankedTeams[3]);
-
-                        return rerankedTeams;
-                    }
-
-                    var topTeams = RankAggregate(rankedTeams.Take(2).ToList());
-
                     if (points[rankedTeams[2]] == points[rankedTeams[3]])
-                    {                        
-                        var bottomTeams = RankAggregate(rankedTeams.Skip(2).ToList());
-                        topTeams.AddRange(bottomTeams);
-
-                        return topTeams;
+                    {
+                        return rankedTeams;
                     }
 
-                    topTeams.AddRange(rankedTeams.Skip(2));
+                    var rerankedTeams = RankAggregate(rankedTeams.Take(3).ToList(), PlayedMatches);
+                    rerankedTeams.Add(rankedTeams[3]);
+
+                    return rerankedTeams;
+                }
+
+                var topTeams = RankAggregate(rankedTeams.Take(2).ToList(), PlayedMatches);
+
+                if (points[rankedTeams[2]] == points[rankedTeams[3]])
+                {                        
+                    var bottomTeams = RankAggregate(rankedTeams.Skip(2).ToList(), PlayedMatches);
+                    topTeams.AddRange(bottomTeams);
 
                     return topTeams;
                 }
 
-                if (points[rankedTeams[1]] == points[rankedTeams[2]])
-                {
-                    var top = rankedTeams.Take(1).ToList();
+                topTeams.AddRange(rankedTeams.Skip(2));
 
-                    if (points[rankedTeams[2]] == points[rankedTeams[3]])
-                    {
-                        top.AddRange(RankAggregate(rankedTeams.Skip(1).ToList()));
+                return topTeams;
+            }
 
-                        return top;
-                    }
-
-                    top.AddRange(rankedTeams.Skip(1).Take(2).ToList());
-                    top.Add(rankedTeams[3]);
-
-                    return top;
-                }
+            if (points[rankedTeams[1]] == points[rankedTeams[2]])
+            {
+                var top = rankedTeams.Take(1).ToList();
 
                 if (points[rankedTeams[2]] == points[rankedTeams[3]])
                 {
-                    var top = rankedTeams.Take(2).ToList();
-                    top.AddRange(RankAggregate(rankedTeams.Skip(2).ToList()));
+                    top.AddRange(RankAggregate(rankedTeams.Skip(1).ToList(), PlayedMatches));
 
                     return top;
                 }
 
-                return rankedTeams;
+                top.AddRange(rankedTeams.Skip(1).Take(2).ToList());
+                top.Add(rankedTeams[3]);
+
+                return top;
             }
+
+            if (points[rankedTeams[2]] == points[rankedTeams[3]])
+            {
+                var top = rankedTeams.Take(2).ToList();
+                top.AddRange(RankAggregate(rankedTeams.Skip(2).ToList(), PlayedMatches));
+
+                return top;
+            }
+
+            return rankedTeams;
         }
 
-        private (List<Team> rankedTeams, Dictionary<Team, int> points) RankStraight(List<Team> teams)
+        public int TeamCanQualify(Team team)
+        {
+            if (PlayedMatches.Count == 6)
+            {
+                var ranking = Ranking();
+
+                if (ranking[0] == team || ranking[1] == team)
+                {
+                    return 1;
+                }
+
+                return -1;
+            }
+
+            var playedCount = PlayedMatches.Count(pm => pm[0] == team.Name || pm[1] == team.Name);
+
+            if (playedCount < 2)
+            {
+                return 0;
+            }
+
+            var resultsToTest = new List<List<string>>() {
+                new List<string>() { "0", "0" },
+                new List<string>() { "1", "1" },
+                new List<string>() { "100", "100" },
+                new List<string>() { "600", "600" },
+                new List<string>() { "1", "0" },
+                new List<string>() { "25", "24" },
+                new List<string>() { "200", "199" },
+                new List<string>() { "70", "0" },
+                new List<string>() { "19000", "0" },
+                new List<string>() { "0", "1" },
+                new List<string>() { "24", "25" },
+                new List<string>() { "199", "200" },
+                new List<string>() { "0", "70" },
+                new List<string>() { "0", "19000" }
+            };
+
+            var possibleFinishes = new HashSet<int>();
+
+            var remainingMatchups = new List<List<string>>();
+
+            for (var i = 0; i < 3; i++)
+            {
+                for (var j = i + 1; j < 4; j++)
+                {
+                    var firstName = Teams[i].Name;
+                    var secondName = Teams[j].Name;
+                    var played = false;
+
+                    PlayedMatches.ForEach(pm =>
+                    {
+                        if ((pm[0] == firstName && pm[1] == secondName) || (pm[1] == firstName && pm[0] == secondName))
+                        {
+                            played = true;
+                        }
+                    });
+
+                    if (!played)
+                    {
+                        remainingMatchups.Add(new List<string>() { firstName, secondName });
+                    }
+                }
+            }
+
+            var combinationCount = 1;
+
+            for (var i = 0; i < remainingMatchups.Count; i++)
+            {
+                combinationCount *= resultsToTest.Count;
+            }
+
+            for (var i = 0; i < combinationCount; i++)
+            {
+                var possiblePlayedMatches = new List<List<string>>(PlayedMatches);
+
+                for (var j = 0; j < remainingMatchups.Count; j++)
+                {
+                    var m = resultsToTest.Count;
+
+                    for (var k = 0; k < j; k++)
+                    {
+                        m *= resultsToTest.Count;
+                    }
+
+                    var matchup = remainingMatchups[j];
+                    var finish = resultsToTest[i % m];
+
+                    possiblePlayedMatches.Add(new List<string>() { matchup[0], matchup[1], finish[0], finish[1] });
+                }
+
+                var ranking = RankStraight(Teams, possiblePlayedMatches).rankedTeams;
+
+                for (var n = 0; n < 4; n++)
+                {
+                    if (ranking[n] == team)
+                    {
+                        possibleFinishes.Add(n);
+                    }
+                }
+            }
+
+            if (!possibleFinishes.Contains(2) && !possibleFinishes.Contains(3))
+            {
+                return 1;
+            }
+
+            if (!possibleFinishes.Contains(0) && !possibleFinishes.Contains(1))
+            {
+                return -1;
+            }
+
+            //remainingMatchups.ForEach(rm =>
+            //{
+
+            //});
+
+            //var outcomes = remainingMatchups.SelectMany(matchup => resultsToTest, (matchup, resultToTest) => new { matchup, resultToTest }).ToList();
+
+            //outcomes.ForEach(outcome =>
+            //{
+            //    var possiblePlayedMatches = new List<List<string>>(PlayedMatches);
+            //    possiblePlayedMatches.AddRange(outcome.
+            //});
+
+            return 0;
+        }
+
+        private (List<Team> rankedTeams, Dictionary<Team, int> points) RankStraight(List<Team> teams, List<List<string>> playedMatches)
         {
             var pointWeight = 1000000;
             var goalDifferenceWeight = 1000;
@@ -88,7 +213,7 @@ namespace BlazeCup.Models
             var points = new Dictionary<Team, int>();
             Teams.ForEach(t => points[t] = 0);
 
-            PlayedMatches.ForEach(pm =>
+            playedMatches.ForEach(pm =>
             {
                 var home = teams.FirstOrDefault(t => t.Name == pm[0]);
                 var away = teams.FirstOrDefault(t => t.Name == pm[1]);
@@ -123,9 +248,9 @@ namespace BlazeCup.Models
             return (points.Select(p => p.Key).OrderBy(t => -points[t]).ToList(), points);
         }
 
-        private List<Team> RankAggregate(List<Team> teams)
+        private List<Team> RankAggregate(List<Team> teams, List<List<string>> playedMatches)
         {
-            return RankStraight(teams).rankedTeams;
+            return RankStraight(teams, playedMatches).rankedTeams;
         }
     }
 }
