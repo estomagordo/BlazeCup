@@ -148,6 +148,13 @@ namespace BlazeCup.Models
             }            
         }
 
+        public string TeamCanQualify(string teamName)
+        {
+            var group = Groups.First(g => g.TeamNames.Contains(teamName));
+
+            return group.TeamCanQualify(teamName);
+        }
+
         public bool Valid()
         {
             if (SecondRounders.Any(entry => String.IsNullOrWhiteSpace(entry)))

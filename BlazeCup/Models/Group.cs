@@ -76,25 +76,25 @@ namespace BlazeCup.Models
             return rankedTeams;
         }
 
-        public int TeamCanQualify(Team team)
+        public string TeamCanQualify(string teamName)
         {
             if (PlayedMatches.Count == 6)
             {
                 var ranking = Ranking();
 
-                if (ranking[0] == team || ranking[1] == team)
+                if (ranking[0].Name == teamName || ranking[1].Name == teamName)
                 {
-                    return 1;
+                    return "colour-green";
                 }
 
-                return -1;
+                return "colour-red";
             }
 
-            var playedCount = PlayedMatches.Count(pm => pm[0] == team.Name || pm[1] == team.Name);
+            var playedCount = PlayedMatches.Count(pm => pm[0] == teamName || pm[1] == teamName);
 
             if (playedCount < 2)
             {
-                return 0;
+                return "colour-gold";//string.Empty;
             }
 
             var resultsToTest = new List<List<string>>() {
@@ -171,7 +171,7 @@ namespace BlazeCup.Models
 
                 for (var n = 0; n < 4; n++)
                 {
-                    if (ranking[n] == team)
+                    if (ranking[n].Name == teamName)
                     {
                         possibleFinishes.Add(n);
                     }
@@ -180,12 +180,12 @@ namespace BlazeCup.Models
 
             if (!possibleFinishes.Contains(2) && !possibleFinishes.Contains(3))
             {
-                return 1;
+                return "colour-green";
             }
 
             if (!possibleFinishes.Contains(0) && !possibleFinishes.Contains(1))
             {
-                return -1;
+                return "colour-red";
             }
 
             //remainingMatchups.ForEach(rm =>
@@ -201,7 +201,7 @@ namespace BlazeCup.Models
             //    possiblePlayedMatches.AddRange(outcome.
             //});
 
-            return 0;
+            return "colour-gold";//string.Empty;
         }
 
         private (List<Team> rankedTeams, Dictionary<Team, int> points) RankStraight(List<Team> teams, List<List<string>> playedMatches)
