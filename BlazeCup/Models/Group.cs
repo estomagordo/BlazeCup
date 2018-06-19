@@ -18,42 +18,7 @@ namespace BlazeCup.Models
         {
             get
             {
-                var pointWeight = 1000000;
-                var goalDifferenceWeight = 1000;
-                var goalsForWeight = 1;
-
-                var points = new Dictionary<Team, int>();
-                Teams.ForEach(t => points[t] = 0);
-
-                PlayedMatches.ForEach(pm =>
-                {
-                    var home = Teams.First(t => t.Name == pm[0]);
-                    var away = Teams.First(t => t.Name == pm[1]);
-                    var homeGoals = int.Parse(pm[2]);
-                    var awayGoals = int.Parse(pm[3]);
-
-                    points[home] += homeGoals * goalsForWeight;
-                    points[away] += awayGoals * goalsForWeight;
-
-                    points[home] += (homeGoals - awayGoals) * goalDifferenceWeight;
-                    points[away] += (awayGoals - homeGoals) * goalDifferenceWeight;
-
-                    if (homeGoals > awayGoals)
-                    {
-                        points[home] += 3 * pointWeight;
-                    }
-                    else if (homeGoals == awayGoals)
-                    {
-                        points[home] += pointWeight;
-                        points[away] += pointWeight;
-                    }
-                    else
-                    {
-                        points[away] += 3 * pointWeight;
-                    }                    
-                });
-
-                var rankedTeams = points.Select(p => p.Key).OrderBy(t => -points[t]).ToList();
+                (var rankedTeams, var points) = RankStraight(Teams);
 
                 if (points[rankedTeams[0]] == points[rankedTeams[1]])
                 {
@@ -114,10 +79,53 @@ namespace BlazeCup.Models
             }
         }
 
+        private (List<Team> rankedTeams, Dictionary<Team, int> points) RankStraight(List<Team> teams)
+        {
+            var pointWeight = 1000000;
+            var goalDifferenceWeight = 1000;
+            var goalsForWeight = 1;
+
+            var points = new Dictionary<Team, int>();
+            Teams.ForEach(t => points[t] = 0);
+
+            PlayedMatches.ForEach(pm =>
+            {
+                var home = teams.FirstOrDefault(t => t.Name == pm[0]);
+                var away = teams.FirstOrDefault(t => t.Name == pm[1]);
+
+                if (home != null && away != null)
+                {
+                    var homeGoals = int.Parse(pm[2]);
+                    var awayGoals = int.Parse(pm[3]);
+
+                    points[home] += homeGoals * goalsForWeight;
+                    points[away] += awayGoals * goalsForWeight;
+
+                    points[home] += (homeGoals - awayGoals) * goalDifferenceWeight;
+                    points[away] += (awayGoals - homeGoals) * goalDifferenceWeight;
+
+                    if (homeGoals > awayGoals)
+                    {
+                        points[home] += 3 * pointWeight;
+                    }
+                    else if (homeGoals == awayGoals)
+                    {
+                        points[home] += pointWeight;
+                        points[away] += pointWeight;
+                    }
+                    else
+                    {
+                        points[away] += 3 * pointWeight;
+                    }
+                }                
+            });
+
+            return (points.Select(p => p.Key).OrderBy(t => -points[t]).ToList(), points);
+        }
+
         private List<Team> RankAggregate(List<Team> teams)
         {
-            // TODO: Implement
-            return teams;
+            return RankStraight(teams).rankedTeams;
         }
     }
 }
