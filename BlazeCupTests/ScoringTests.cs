@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace BlazeCupTests
 {
     [TestClass]
-    public class ScoringTest
+    public class ScoringTests
     {
         [TestMethod]
         public void ScoringGame_EntirelyWrong_ZeroPoints()
