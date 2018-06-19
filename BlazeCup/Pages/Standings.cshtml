@@ -16,7 +16,7 @@
     @for (var i = 0; i < Submissions.Count; i++)
     {
         var submission = Submissions[i];
-        <div class='row @(i == 0 ? "gold" : i == 1 ? "silver" : i == 2 ? "bronze" : string.Empty)'>
+        <div class='row @(i == 0 ? "colour-gold" : i == 1 ? "colour-silver" : i == 2 ? "colour-bronze" : string.Empty)'>
             <div class="col-sm-2">
                 @(i + 1)
             </div>

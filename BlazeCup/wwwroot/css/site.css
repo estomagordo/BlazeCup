@@ -22,35 +22,35 @@ input {
     width: 360px;
 }
 
-.gold {
+.colour-gold {
     background-color: #CFB53B;
 }
 
-.silver {
+.colour-silver {
     background-color: #E6E8FA;
 }
 
-.bronze {
+.colour-bronze {
     background-color: #8C7853;
 }
 
-.match-points-0 {
+.colour-red {
     background-color: #800;
 }
 
-.match-points-1 {
+.colour-yellow {
     background-color: #ee0;
 }
 
-.match-points-2 {
+.colour-light-green {
     background-color: #0d0;
 }
 
-.match-points-3 {
+.colour-green {
     background-color: #0b0;
 }
 
-.match-points-6 {
+.colour-dark-green {
     background-color: #090;
 }
 
