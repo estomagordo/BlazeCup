@@ -186,5 +186,64 @@ namespace BlazeCupTests
             Assert.AreEqual("Italien", ranking[2].Name);
             Assert.AreEqual("Bulgarien", ranking[3].Name);
         }
+
+        [TestMethod]
+        public void WorldCup2018GroupA_WhoCanQualify_AfterThreePlayed()
+        {
+            var group = new Group();
+            group.Teams = new List<Team>()
+            {
+                new Team() {Name = "Egypten"},
+                new Team() {Name = "Ryssland"},
+                new Team() {Name = "Saudiarabien"},
+                new Team() {Name = "Uruguay"}
+            };
+            group.PlayedMatches = new List<List<string>>()
+            {
+                new List<string>() { "Ryssland", "Saudiarabien", "5", "0" },
+                new List<string>() { "Egypten", "Uruguay", "0", "1" },
+                new List<string>() { "Ryssland", "Egypten", "3", "1" }
+            };
+
+            var egyptColour = group.TeamCanQualify("Egypten");
+            var russiaColour = group.TeamCanQualify("Ryssland");
+            var saudiArabiaColour = group.TeamCanQualify("Saudiarabien");
+            var uruguayColour = group.TeamCanQualify("Uruguay");
+
+            Assert.AreEqual("colour-gold", egyptColour);
+            Assert.AreEqual("colour-gold", russiaColour);
+            Assert.AreEqual("colour-gold", saudiArabiaColour);
+            Assert.AreEqual("colour-gold", uruguayColour);
+        }
+
+        [TestMethod]
+        public void WorldCup2018GroupA_WhoCanQualify_AfterFourPlayed()
+        {
+            var group = new Group();
+            group.Teams = new List<Team>()
+            {
+                new Team() {Name = "Egypten"},
+                new Team() {Name = "Ryssland"},
+                new Team() {Name = "Saudiarabien"},
+                new Team() {Name = "Uruguay"}
+            };
+            group.PlayedMatches = new List<List<string>>()
+            {
+                new List<string>() { "Ryssland", "Saudiarabien", "5", "0" },
+                new List<string>() { "Egypten", "Uruguay", "0", "1" },
+                new List<string>() { "Ryssland", "Egypten", "3", "1" },
+                new List<string>() { "Uruguay", "Saudiarabien", "1", "0" }
+            };
+
+            var egyptColour = group.TeamCanQualify("Egypten");
+            var russiaColour = group.TeamCanQualify("Ryssland");
+            var saudiArabiaColour = group.TeamCanQualify("Saudiarabien");
+            var uruguayColour = group.TeamCanQualify("Uruguay");
+
+            Assert.AreEqual("colour-red", egyptColour);
+            Assert.AreEqual("colour-green", russiaColour);
+            Assert.AreEqual("colour-red", saudiArabiaColour);
+            Assert.AreEqual("colour-green", uruguayColour);
+        }
     }
 }

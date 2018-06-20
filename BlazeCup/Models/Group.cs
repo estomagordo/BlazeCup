@@ -100,18 +100,18 @@ namespace BlazeCup.Models
             var resultsToTest = new List<List<string>>() {
                 new List<string>() { "0", "0" },
                 new List<string>() { "1", "1" },
-                new List<string>() { "100", "100" },
-                new List<string>() { "600", "600" },
+                new List<string>() { "20", "20" },
+                new List<string>() { "60", "60" },
                 new List<string>() { "1", "0" },
                 new List<string>() { "25", "24" },
                 new List<string>() { "200", "199" },
                 new List<string>() { "70", "0" },
-                new List<string>() { "19000", "0" },
+                new List<string>() { "1900", "0" },
                 new List<string>() { "0", "1" },
                 new List<string>() { "24", "25" },
                 new List<string>() { "199", "200" },
                 new List<string>() { "0", "70" },
-                new List<string>() { "0", "19000" }
+                new List<string>() { "0", "1900" }
             };
 
             var possibleFinishes = new HashSet<int>();
@@ -154,7 +154,7 @@ namespace BlazeCup.Models
 
                 for (var j = 0; j < remainingMatchups.Count; j++)
                 {
-                    var m = resultsToTest.Count;
+                    var m = 1;
 
                     for (var k = 0; k < j; k++)
                     {
@@ -162,7 +162,7 @@ namespace BlazeCup.Models
                     }
 
                     var matchup = remainingMatchups[j];
-                    var finish = resultsToTest[i % m];
+                    var finish = resultsToTest[(i / m) % resultsToTest.Count];
 
                     possiblePlayedMatches.Add(new List<string>() { matchup[0], matchup[1], finish[0], finish[1] });
                 }
@@ -206,7 +206,7 @@ namespace BlazeCup.Models
 
         private (List<Team> rankedTeams, Dictionary<Team, int> points) RankStraight(List<Team> teams, List<List<string>> playedMatches)
         {
-            var pointWeight = 1000000;
+            var pointWeight = 10000000;
             var goalDifferenceWeight = 1000;
             var goalsForWeight = 1;
 
