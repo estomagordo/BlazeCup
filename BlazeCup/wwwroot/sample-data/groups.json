@@ -111,7 +111,8 @@
     "PlayedMatches": [
       ["Costa Rica", "Serbien", "0", "1"],
       ["Brasilien", "Schweiz", "1", "1"],
-      ["Brasilien", "Costa Rica", "2", "0"]
+      ["Brasilien", "Costa Rica", "2", "0"],
+      ["Serbien", "Schweiz", "1", "2"]
     ]
   },
   {
