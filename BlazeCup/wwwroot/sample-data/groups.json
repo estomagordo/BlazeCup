@@ -180,7 +180,8 @@
         "PlayedMatches": [
           ["Colombia", "Japan", "1", "2"],
           ["Polen", "Senegal", "1", "2"],
-          ["Japan", "Senegal", "2", "2"]
+          ["Japan", "Senegal", "2", "2"],
+          ["Polen", "Colombia", "0", "3"]
         ]    
   }
 ]
