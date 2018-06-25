@@ -16,91 +16,91 @@
         <div class="content-part">
             <div class="col-sm-12"><span class="font-weight-bold">Tippade åttondelsfinalister</span></div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound1).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound1
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound2).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound2
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound3).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound3
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound4).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound4
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound5).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound5
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound6).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound6
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound7).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound7
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound8).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound8
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound9).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound9
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound10).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound10
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound11).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound11
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound12).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound12
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound13).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound13
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound14).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound14
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound15).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound15
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SecondRound16).SecondRoundColour)">
                     @ParticipantSubmission.SecondRound16
                 </div>
                 <div class="col-sm-12"><span class="font-weight-bold">Tippade kvartsfinalister</span></div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.QuarterFinalist1).QuarterFinalColour)>
                     @ParticipantSubmission.QuarterFinalist1
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.QuarterFinalist2).QuarterFinalColour)>
                     @ParticipantSubmission.QuarterFinalist2
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.QuarterFinalist3).QuarterFinalColour)>
                     @ParticipantSubmission.QuarterFinalist3
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.QuarterFinalist4).QuarterFinalColour)>
                     @ParticipantSubmission.QuarterFinalist4
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.QuarterFinalist5).QuarterFinalColour)>
                     @ParticipantSubmission.QuarterFinalist5
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.QuarterFinalist6).QuarterFinalColour)>
                     @ParticipantSubmission.QuarterFinalist6
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.QuarterFinalist7).QuarterFinalColour)>
                     @ParticipantSubmission.QuarterFinalist7
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.QuarterFinalist8).QuarterFinalColour)>
                     @ParticipantSubmission.QuarterFinalist8
                 </div>
             </div>
@@ -110,33 +110,33 @@
         <div class="content-part">
             <div class="col-sm-12"><span class="font-weight-bold">Tippade semifinalister</span></div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SemiFinalist1).SemiFinalColour)>
                     @ParticipantSubmission.SemiFinalist1
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SemiFinalist2).SemiFinalColour)>
                     @ParticipantSubmission.SemiFinalist2
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SemiFinalist3).SemiFinalColour)>
                     @ParticipantSubmission.SemiFinalist3
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.SemiFinalist4).SemiFinalColour)>
                     @ParticipantSubmission.SemiFinalist4
                 </div>
             </div>
             <div class="col-sm-12"><span class="font-weight-bold">Tippade finalister</span></div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.Finalist1).FinalColour)>
                     @ParticipantSubmission.Finalist1
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.Finalist2).FinalColour)>
                     @ParticipantSubmission.Finalist2
                 </div>
             </div>
             <div class="col-sm-12"><span class="font-weight-bold">Tippade vinnare</span></div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12" @((teams == null || !teams.Any()) ? string.Empty : teams.First(t => t.Name == ParticipantSubmission.Champion).ChampionColour)>
                     @ParticipantSubmission.Champion
                 </div>
             </div>
@@ -165,32 +165,33 @@
 
 @functions {
 
-[Parameter]
-Submission ParticipantSubmission { get; set; }
+    [Parameter]
+    Submission ParticipantSubmission { get; set; }
+    [Parameter]
+    List<Team> teams { get; set; }
 
-private const int partCount = 6;
-List<Team> teams;
-int Showing { get; set; } = 0;
-bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false };
+    private const int partCount = 6;
+    int Showing { get; set; } = 0;
+    bool[] Visible { get; set; } = new bool[] { true, false, false, false, false, false };
 
-void CycleParts(int steps)
-{
-    Showing = (Showing + steps + partCount) % partCount;
-
-    for (var i = 0; i < partCount; i++)
+    void CycleParts(int steps)
     {
-        Visible[i] = i == Showing;
+        Showing = (Showing + steps + partCount) % partCount;
+
+        for (var i = 0; i < partCount; i++)
+        {
+            Visible[i] = i == Showing;
+        }
     }
-}
 
-void CycleBack()
-{
-    CycleParts(-1);
-}
+    void CycleBack()
+    {
+        CycleParts(-1);
+    }
 
-void CycleForward()
-{
-    CycleParts(1);
-}
+    void CycleForward()
+    {
+        CycleParts(1);
+    }
 
 }

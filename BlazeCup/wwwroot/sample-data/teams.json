@@ -1,130 +1,162 @@
 ﻿[
   {
     "Name": "Argentina",
-    "FlagUrl": "images/flags/argentina.png"
+    "FlagUrl": "images/flags/argentina.png",
+    "Stage": 5
   },
   {
     "Name": "Australien",
-    "FlagUrl": "images/flags/australia.png"
+    "FlagUrl": "images/flags/australia.png",
+    "Stage": 5
   },
   {
     "Name": "Belgien",
-    "FlagUrl": "images/flags/belgium.png"
+    "FlagUrl": "images/flags/belgium.png",
+    "Stage": 6
   },
   {
     "Name": "Brasilien",
-    "FlagUrl": "images/flags/brazil.png"
+    "FlagUrl": "images/flags/brazil.png",
+    "Stage": 5
   },
   {
     "Name": "Colombia",
-    "FlagUrl": "images/flags/colombia.png"
+    "FlagUrl": "images/flags/colombia.png",
+    "Stage": 5
   },
   {
     "Name": "Costa Rica",
-    "FlagUrl": "images/flags/costarica.png"
+    "FlagUrl": "images/flags/costarica.png",
+    "Stage": 4
   },
   {
     "Name": "Kroatien",
-    "FlagUrl": "images/flags/croatia.png"
+    "FlagUrl": "images/flags/croatia.png",
+    "Stage": 6
   },
   {
     "Name": "Danmark",
-    "FlagUrl": "images/flags/denmark.png"
+    "FlagUrl": "images/flags/denmark.png",
+    "Stage": 5
   },
   {
     "Name": "Egypten",
-    "FlagUrl": "images/flags/egypt.png"
+    "FlagUrl": "images/flags/egypt.png",
+    "Stage": 4
   },
   {
     "Name": "England",
-    "FlagUrl": "images/flags/england.png"
+    "FlagUrl": "images/flags/england.png",
+    "Stage": 6
   },
   {
     "Name": "Frankrike",
-    "FlagUrl": "images/flags/france.png"
+    "FlagUrl": "images/flags/france.png",
+    "Stage": 5
   },
   {
     "Name": "Tyskland",
-    "FlagUrl": "images/flags/germany.png"
+    "FlagUrl": "images/flags/germany.png",
+    "Stage": 5
   },
   {
     "Name": "Island",
-    "FlagUrl": "images/flags/iceland.png"
+    "FlagUrl": "images/flags/iceland.png",
+    "Stage": 5
   },
   {
     "Name": "Iran",
-    "FlagUrl": "images/flags/iran.png"
+    "FlagUrl": "images/flags/iran.png",
+    "Stage": 5
   },
   {
     "Name": "Japan",
-    "FlagUrl": "images/flags/japan.png"
+    "FlagUrl": "images/flags/japan.png",
+    "Stage": 5
   },
   {
     "Name": "Mexiko",
-    "FlagUrl": "images/flags/mexico.png"
+    "FlagUrl": "images/flags/mexico.png",
+    "Stage": 5
   },
   {
     "Name": "Marocko",
-    "FlagUrl": "images/flags/morocco.png"
+    "FlagUrl": "images/flags/morocco.png",
+    "Stage": 4
   },
   {
     "Name": "Nigeria",
-    "FlagUrl": "images/flags/nigeria.png"
+    "FlagUrl": "images/flags/nigeria.png",
+    "Stage": 5
   },
   {
     "Name": "Panama",
-    "FlagUrl": "images/flags/panama.png"
+    "FlagUrl": "images/flags/panama.png",
+    "Stage": 4
   },
   {
     "Name": "Peru",
-    "FlagUrl": "images/flags/peru.png"
+    "FlagUrl": "images/flags/peru.png",
+    "Stage": 4
   },
   {
     "Name": "Polen",
-    "FlagUrl": "images/flags/poland.png"
+    "FlagUrl": "images/flags/poland.png",
+    "Stage": 4
   },
   {
     "Name": "Portugal",
-    "FlagUrl": "images/flags/portugal.png"
+    "FlagUrl": "images/flags/portugal.png",
+    "Stage": 5
   },
   {
     "Name": "Ryssland",
-    "FlagUrl": "images/flags/russia.png"
+    "FlagUrl": "images/flags/russia.png",
+    "Stage": 6
   },
   {
     "Name": "Saudiarabien",
-    "FlagUrl": "images/flags/saudiarabia.png"
+    "FlagUrl": "images/flags/saudiarabia.png",
+    "Stage": 4
   },
   {
     "Name": "Senegal",
-    "FlagUrl": "images/flags/senegal.png"
+    "FlagUrl": "images/flags/senegal.png",
+    "Stage": 5
   },
   {
     "Name": "Serbien",
-    "FlagUrl": "images/flags/serbia.png"
+    "FlagUrl": "images/flags/serbia.png",
+    "Stage": 5
   },
   {
     "Name": "Sydkorea",
-    "FlagUrl": "images/flags/southkorea.png"
+    "FlagUrl": "images/flags/southkorea.png",
+    "Stage": 5
   },
   {
     "Name": "Spanien",
-    "FlagUrl": "images/flags/spain.png"
+    "FlagUrl": "images/flags/spain.png",
+    "Stage": 5
   },
   {
     "Name": "Sverige",
-    "FlagUrl": "images/flags/sweden.png"
+    "FlagUrl": "images/flags/sweden.png",
+    "Stage": 5
   },
   {
     "Name": "Schweiz",
-    "FlagUrl": "images/flags/switzerland.png"
+    "FlagUrl": "images/flags/switzerland.png",
+    "Stage": 5
   },
   {
     "Name": "Tunisien",
-    "FlagUrl": "images/flags/tunisia.png"
+    "FlagUrl": "images/flags/tunisia.png",
+    "Stage": 4
   },
   {
     "Name": "Uruguay",
-    "FlagUrl": "images/flags/uruguay.png"
+    "FlagUrl": "images/flags/uruguay.png",
+    "Stage": 6
   }
 ]

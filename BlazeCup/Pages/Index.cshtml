@@ -17,7 +17,7 @@ else
         <Registration ParticipantSubmission="@(new Submission())" Locked="@false"></Registration>
     </div>*@
     <div style='@(ActivePage == Page.ViewSubmission ? string.Empty : "display: none")'>
-        <SubmissionView ParticipantSubmission="@ParticipantSubmission"></SubmissionView>
+        <SubmissionView ParticipantSubmission="@ParticipantSubmission" Teams="@Teams"></SubmissionView>
         <button id="to-landing" class="btn btn-primary" onclick="@ToLanding">Tillbaka till startsidan</button>
     </div>
     <div style='@(ActivePage == Page.Standings ? string.Empty : "display: none")'>
