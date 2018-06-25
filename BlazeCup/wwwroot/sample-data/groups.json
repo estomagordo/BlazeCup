@@ -19,7 +19,9 @@
       ["Ryssland", "Saudiarabien", "5", "0"],
       ["Egypten", "Uruguay", "0", "1"],
       ["Ryssland", "Egypten", "3", "1"],
-      ["Uruguay", "Saudiarabien", "1", "0"]
+      ["Uruguay", "Saudiarabien", "1", "0"],
+      ["Uruguay", "Ryssland", "3", "0"],
+      ["Saudiarabien", "Egypten", "2", "1"]
     ]
   },
   {
