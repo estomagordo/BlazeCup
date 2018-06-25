@@ -44,8 +44,9 @@
       ["Marocko", "Iran", "0", "1"],
         ["Portugal", "Spanien", "3","3"],
         ["Portugal", "Marocko", "1", "0"],
-        ["Iran", "Spanien", "0", "1"]
-
+        ["Iran", "Spanien", "0", "1"],
+        [ "Iran", "Portugal", "1", "1" ],
+        ["Spanien", "Marocko", "2", "2"]
     ]
   },
   {

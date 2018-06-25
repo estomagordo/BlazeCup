@@ -67,7 +67,7 @@
   {
     "Name": "Iran",
     "FlagUrl": "images/flags/iran.png",
-    "Stage": 5
+    "Stage": 4
   },
   {
     "Name": "Japan",
@@ -107,7 +107,7 @@
   {
     "Name": "Portugal",
     "FlagUrl": "images/flags/portugal.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Ryssland",
@@ -137,7 +137,7 @@
   {
     "Name": "Spanien",
     "FlagUrl": "images/flags/spain.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Sverige",
