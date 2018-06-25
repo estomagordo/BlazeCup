@@ -18,7 +18,10 @@
     "PlayedMatches": [
       ["Ryssland", "Saudiarabien", "5", "0"],
       ["Egypten", "Uruguay", "0", "1"],
-      ["Ryssland", "Egypten", "3", "1"]
+      ["Ryssland", "Egypten", "3", "1"],
+      ["Uruguay", "Saudiarabien", "1", "0"],
+      ["Uruguay", "Ryssland", "3", "0"],
+      ["Saudiarabien", "Egypten", "2", "1"]
     ]
   },
   {
@@ -39,7 +42,9 @@
       ],
       "PlayedMatches": [
       ["Marocko", "Iran", "0", "1"],
-        ["Portugal", "Spanien", "3","3"]
+        ["Portugal", "Spanien", "3","3"],
+        ["Portugal", "Marocko", "1", "0"],
+        ["Iran", "Spanien", "0", "1"]
 
     ]
   },
@@ -61,7 +66,9 @@
     ],
     "PlayedMatches": [
       ["Frankrike", "Australien", "2", "1"],
-      ["Peru", "Danmark", "0", "1"]
+      ["Peru", "Danmark", "0", "1"],
+      ["Danmark", "Australien", "1", "1"],
+      ["Frankrike", "Peru", "1", "0"]
       ]
   },
   {
@@ -82,7 +89,9 @@
     ],
     "PlayedMatches": [
       ["Argentina", "Island", "1", "1"],
-      ["Kroatien", "Nigeria", "2", "0"]
+      ["Kroatien", "Nigeria", "2", "0"],
+      ["Argentina", "Kroatien", "0", "3"],
+      ["Nigeria", "Island", "2", "0"]
       ]
   },
   {
@@ -103,7 +112,9 @@
     ],
     "PlayedMatches": [
       ["Costa Rica", "Serbien", "0", "1"],
-      ["Brasilien", "Schweiz", "1", "1"]
+      ["Brasilien", "Schweiz", "1", "1"],
+      ["Brasilien", "Costa Rica", "2", "0"],
+      ["Serbien", "Schweiz", "1", "2"]
     ]
   },
   {
@@ -124,7 +135,9 @@
     ],
     "PlayedMatches": [
       ["Tyskland", "Mexiko", "0", "1"],
-      ["Sverige", "Sydkorea", "1", "0"]
+      ["Sverige", "Sydkorea", "1", "0"],
+      ["Sydkorea", "Mexiko", "1", "2"],
+      ["Tyskland", "Sverige", "2", "1"]
     ]
   },
   {
@@ -145,7 +158,9 @@
     ],
     "PlayedMatches": [
       ["Belgien", "Panama", "3", "0"],
-      ["Tunisien", "England", "1", "2"]
+      ["Tunisien", "England", "1", "2"],
+      ["Belgien", "Tunisien", "5", "2"],
+      ["England", "Panama", "6", "1"]
       ]
   },
   {
@@ -166,7 +181,9 @@
       ],
         "PlayedMatches": [
           ["Colombia", "Japan", "1", "2"],
-          ["Polen", "Senegal", "1", "2"]
+          ["Polen", "Senegal", "1", "2"],
+          ["Japan", "Senegal", "2", "2"],
+          ["Polen", "Colombia", "0", "3"]
         ]    
   }
 ]
