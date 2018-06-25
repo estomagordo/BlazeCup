@@ -22,12 +22,6 @@
       [ "Uruguay", "Saudiarabien", "1", "0" ],
       [ "Uruguay", "Ryssland", "3", "0" ],
       [ "Saudiarabien", "Egypten", "2", "1" ]
-    ],
-    "Through": [
-      [ "Ryssland", "Uruguay" ]
-    ],
-    "Out": [
-      [ "Egypten", "Saudiarabien" ]
     ]
   },
   {
@@ -45,18 +39,13 @@
       [ "Iran", "Spanien" ],
       [ "Iran", "Portugal" ],
       [ "Spanien", "Marocko" ]
-    ],
-    "PlayedMatches": [
-      [ "Marocko", "Iran", "0", "1" ],
-      [ "Portugal", "Spanien", "3", "3" ],
-      [ "Portugal", "Marocko", "1", "0" ],
-      [ "Iran", "Spanien", "0", "1" ]
-    ],
-    "Through": [
-      [ ]
-    ],
-    "Out": [
-      [ "Marocko" ]
+      ],
+      "PlayedMatches": [
+      ["Marocko", "Iran", "0", "1"],
+        ["Portugal", "Spanien", "3","3"],
+        ["Portugal", "Marocko", "1", "0"],
+        ["Iran", "Spanien", "0", "1"]
+
     ]
   },
   {
@@ -76,17 +65,11 @@
       [ "Australien", "Peru" ]
     ],
     "PlayedMatches": [
-      [ "Frankrike", "Australien", "2", "1" ],
-      [ "Peru", "Danmark", "0", "1" ],
-      [ "Danmark", "Australien", "1", "1" ],
-      [ "Frankrike", "Peru", "1", "0" ]
-    ],
-    "Through": [
-      [ "Frankrike" ]
-    ],
-    "Out": [
-      [ "Peru" ]
-    ]
+      ["Frankrike", "Australien", "2", "1"],
+      ["Peru", "Danmark", "0", "1"],
+      ["Danmark", "Australien", "1", "1"],
+      ["Frankrike", "Peru", "1", "0"]
+      ]
   },
   {
     "Name": "Grupp D",
@@ -105,17 +88,11 @@
       [ "Island", "Kroatien" ]
     ],
     "PlayedMatches": [
-      [ "Argentina", "Island", "1", "1" ],
-      [ "Kroatien", "Nigeria", "2", "0" ],
-      [ "Argentina", "Kroatien", "0", "3" ],
-      [ "Nigeria", "Island", "2", "0" ]
-    ],
-    "Through": [
-      ["Kroatien"]
-    ],
-    "Out": [
-      [ ]
-    ]
+      ["Argentina", "Island", "1", "1"],
+      ["Kroatien", "Nigeria", "2", "0"],
+      ["Argentina", "Kroatien", "0", "3"],
+      ["Nigeria", "Island", "2", "0"]
+      ]
   },
   {
     "Name": "Grupp E",
@@ -134,16 +111,10 @@
       [ "Schweiz", "Costa Rica" ]
     ],
     "PlayedMatches": [
-      [ "Costa Rica", "Serbien", "0", "1" ],
-      [ "Brasilien", "Schweiz", "1", "1" ],
-      [ "Brasilien", "Costa Rica", "2", "0" ],
-      [ "Serbien", "Schweiz", "1", "2" ]
-    ],
-    "Through": [
-      []
-    ],
-    "Out": [
-      [ "Costa Rica" ]
+      ["Costa Rica", "Serbien", "0", "1"],
+      ["Brasilien", "Schweiz", "1", "1"],
+      ["Brasilien", "Costa Rica", "2", "0"],
+      ["Serbien", "Schweiz", "1", "2"]
     ]
   },
   {
@@ -163,16 +134,10 @@
       [ "Mexiko", "Sverige" ]
     ],
     "PlayedMatches": [
-      [ "Tyskland", "Mexiko", "0", "1" ],
-      [ "Sverige", "Sydkorea", "1", "0" ],
-      [ "Sydkorea", "Mexiko", "1", "2" ],
-      [ "Tyskland", "Sverige", "2", "1" ]
-    ],
-    "Through": [
-      []
-    ],
-    "Out": [
-      []
+      ["Tyskland", "Mexiko", "0", "1"],
+      ["Sverige", "Sydkorea", "1", "0"],
+      ["Sydkorea", "Mexiko", "1", "2"],
+      ["Tyskland", "Sverige", "2", "1"]
     ]
   },
   {
@@ -192,17 +157,11 @@
       [ "Panama", "Tunisien" ]
     ],
     "PlayedMatches": [
-      [ "Belgien", "Panama", "3", "0" ],
-      [ "Tunisien", "England", "1", "2" ],
-      [ "Belgien", "Tunisien", "5", "2" ],
-      [ "England", "Panama", "6", "1" ]
-    ],
-    "Through": [
-      ["Belgien", "England"]
-    ],
-    "Out": [
-      [ "Panama", "Tunisien" ]
-    ]
+      ["Belgien", "Panama", "3", "0"],
+      ["Tunisien", "England", "1", "2"],
+      ["Belgien", "Tunisien", "5", "2"],
+      ["England", "Panama", "6", "1"]
+      ]
   },
   {
     "Name": "Grupp H",
@@ -219,18 +178,12 @@
       [ "Polen", "Colombia" ],
       [ "Japan", "Polen" ],
       [ "Senegal", "Colombia" ]
-    ],
-    "PlayedMatches": [
-      [ "Colombia", "Japan", "1", "2" ],
-      [ "Polen", "Senegal", "1", "2" ],
-      [ "Japan", "Senegal", "2", "2" ],
-      [ "Polen", "Colombia", "0", "3" ]
-    ],
-    "Through": [
-      []
-    ],
-    "Out": [
-      [ "Polen" ]
-    ]
+      ],
+        "PlayedMatches": [
+          ["Colombia", "Japan", "1", "2"],
+          ["Polen", "Senegal", "1", "2"],
+          ["Japan", "Senegal", "2", "2"],
+          ["Polen", "Colombia", "0", "3"]
+        ]    
   }
 ]
