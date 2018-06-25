@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using  Models
+@using static BlazeCup.Enums.Enums;
 @inject HttpClient Http
 @inject Microsoft.AspNetCore.Blazor.Services.IUriHelper UriHelper
 
@@ -14,8 +15,8 @@ else
         <input type="text" placeholder="Hämta upp din tipsrad" onchange=@(e => EmailFieldChanged(e)) />
     </div>
     @*<div style='@(ActivePage == Page.Registration ? string.Empty : "display: none")'>
-        <Registration ParticipantSubmission="@(new Submission())" Locked="@false"></Registration>
-    </div>*@
+            <Registration ParticipantSubmission="@(new Submission())" Locked="@false"></Registration>
+        </div>*@
     <div style='@(ActivePage == Page.ViewSubmission ? string.Empty : "display: none")'>
         <SubmissionView ParticipantSubmission="@ParticipantSubmission" Teams="@Teams"></SubmissionView>
         <button id="to-landing" class="btn btn-primary" onclick="@ToLanding">Tillbaka till startsidan</button>
@@ -74,6 +75,12 @@ else
         Teams = await Http.GetJsonAsync<List<Team>>("/sample-data/Teams.json");
         Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
 
+        var actualSecondRounders = Teams.Where(t => t.Stage >= TeamStage.ThroughGroup).Select(t => t.Name).ToList();
+        var actualQuarterFinalists = Teams.Where(t => t.Stage >= TeamStage.Through16).Select(t => t.Name).ToList();
+        var actualSemiFinalists = Teams.Where(t => t.Stage >= TeamStage.ThroughQuarter).Select(t => t.Name).ToList();
+        var actualFinalists = Teams.Where(t => t.Stage >= TeamStage.ThroughSemi).Select(t => t.Name).ToList();
+        var actualChampion = Teams.Where(t => t.Stage == TeamStage.Champions)?.Select(t => t.Name).FirstOrDefault();
+
         Groups.ForEach(g =>
         {
             g.Teams = new List<Team>();
@@ -126,6 +133,12 @@ else
                     }
                 });
             });
+
+            s.ActualSecondRounders = actualSecondRounders;
+            s.ActualQuarterfinalists = actualQuarterFinalists;
+            s.ActualSemifinalists = actualSemiFinalists;
+            s.ActualFinalists = actualFinalists;
+            s.ActualChampion = actualChampion;
         });
 
         Submissions = Submissions.OrderBy(s => s.Score * -1).ThenBy(s => s.Name).ToList();
