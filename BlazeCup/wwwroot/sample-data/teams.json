@@ -2,7 +2,7 @@
   {
     "Name": "Argentina",
     "FlagUrl": "images/flags/argentina.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Australien",
@@ -62,7 +62,7 @@
   {
     "Name": "Island",
     "FlagUrl": "images/flags/iceland.png",
-    "Stage": 5
+    "Stage": 4
   },
   {
     "Name": "Iran",
@@ -87,7 +87,7 @@
   {
     "Name": "Nigeria",
     "FlagUrl": "images/flags/nigeria.png",
-    "Stage": 5
+    "Stage": 4
   },
   {
     "Name": "Panama",
