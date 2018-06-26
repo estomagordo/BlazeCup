@@ -7,7 +7,7 @@
   {
     "Name": "Australien",
     "FlagUrl": "images/flags/australia.png",
-    "Stage": 5
+    "Stage": 4
   },
   {
     "Name": "Belgien",
@@ -37,7 +37,7 @@
   {
     "Name": "Danmark",
     "FlagUrl": "images/flags/denmark.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Egypten",
@@ -52,7 +52,7 @@
   {
     "Name": "Frankrike",
     "FlagUrl": "images/flags/france.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Tyskland",

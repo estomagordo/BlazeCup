@@ -69,7 +69,9 @@
       ["Frankrike", "Australien", "2", "1"],
       ["Peru", "Danmark", "0", "1"],
       ["Danmark", "Australien", "1", "1"],
-      ["Frankrike", "Peru", "1", "0"]
+      [ "Frankrike", "Peru", "1", "0" ],
+      [ "Danmark", "Frankrike", "0", "0" ],
+      ["Australien", "Peru", "0", "2"]
       ]
   },
   {
