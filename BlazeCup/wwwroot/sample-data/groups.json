@@ -193,7 +193,7 @@
           ["Polen", "Senegal", "1", "2"],
           ["Japan", "Senegal", "2", "2"],
           [ "Polen", "Colombia", "0", "3" ],
-          [ "Japan", "Polen", "1", "0" ],
+          [ "Japan", "Polen", "0", "1" ],
           ["Senegal", "Colombia", "0", "1"]
         ]    
   }
