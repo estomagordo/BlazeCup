@@ -17,7 +17,7 @@
   {
     "Name": "Brasilien",
     "FlagUrl": "images/flags/brazil.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Colombia",
@@ -57,7 +57,7 @@
   {
     "Name": "Tyskland",
     "FlagUrl": "images/flags/germany.png",
-    "Stage": 5
+    "Stage": 4
   },
   {
     "Name": "Island",
@@ -77,7 +77,7 @@
   {
     "Name": "Mexiko",
     "FlagUrl": "images/flags/mexico.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Marocko",
@@ -127,12 +127,12 @@
   {
     "Name": "Serbien",
     "FlagUrl": "images/flags/serbia.png",
-    "Stage": 5
+    "Stage": 4
   },
   {
     "Name": "Sydkorea",
     "FlagUrl": "images/flags/southkorea.png",
-    "Stage": 5
+    "Stage": 4
   },
   {
     "Name": "Spanien",
@@ -142,12 +142,12 @@
   {
     "Name": "Sverige",
     "FlagUrl": "images/flags/sweden.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Schweiz",
     "FlagUrl": "images/flags/switzerland.png",
-    "Stage": 5
+    "Stage": 6
   },
   {
     "Name": "Tunisien",
