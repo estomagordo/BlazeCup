@@ -119,7 +119,9 @@
       ["Costa Rica", "Serbien", "0", "1"],
       ["Brasilien", "Schweiz", "1", "1"],
       ["Brasilien", "Costa Rica", "2", "0"],
-      ["Serbien", "Schweiz", "1", "2"]
+      ["Serbien", "Schweiz", "1", "2"],
+      ["Serbien", "Brasilien", "0", "2"],
+      ["Schweiz", "Costa Rica", "2", "2"]
     ]
   },
   {
@@ -142,7 +144,9 @@
       ["Tyskland", "Mexiko", "0", "1"],
       ["Sverige", "Sydkorea", "1", "0"],
       ["Sydkorea", "Mexiko", "1", "2"],
-      ["Tyskland", "Sverige", "2", "1"]
+      ["Tyskland", "Sverige", "2", "1"],
+      ["Sydkorea", "Tyskland", "2", "0"],
+      ["Mexiko", "Sverige", "0", "3"]
     ]
   },
   {
