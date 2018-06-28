@@ -169,7 +169,9 @@
       ["Belgien", "Panama", "3", "0"],
       ["Tunisien", "England", "1", "2"],
       ["Belgien", "Tunisien", "5", "2"],
-      ["England", "Panama", "6", "1"]
+      [ "England", "Panama", "6", "1" ],
+      [ "England", "Belgien", "0", "1" ],
+      ["Panama", "Tunisien", "1", "2"]
       ]
   },
   {
