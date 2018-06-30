@@ -1,6 +1,7 @@
 ﻿@using Models
 
-<h4>Ställning efter @(PlayedMatchCount / Submissions.Count) match@(PlayedMatchCount / Submissions.Count == 1 ? "" : "er")</h4>
+<h4>Ställning efter @(PlayedMatchCount / Submissions.Count) gruppspelsmatch@(PlayedMatchCount / Submissions.Count == 1 ? "" : "er")</h4>
+<h4>och @(Teams.Count(t => t.Stage >= Enums.Enums.TeamStage.Through16)) slutspelsmatcher</h4>
 <div class="standings-table">
     <div class="row">
         <div class="col-sm-2">
