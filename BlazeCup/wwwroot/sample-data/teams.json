@@ -107,7 +107,7 @@
   {
     "Name": "Portugal",
     "FlagUrl": "images/flags/portugal.png",
-    "Stage": 6
+    "Stage": 3
   },
   {
     "Name": "Ryssland",
@@ -157,6 +157,6 @@
   {
     "Name": "Uruguay",
     "FlagUrl": "images/flags/uruguay.png",
-    "Stage": 6
+    "Stage": 7
   }
 ]
