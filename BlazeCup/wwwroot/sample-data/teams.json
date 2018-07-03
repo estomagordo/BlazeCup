@@ -12,12 +12,12 @@
   {
     "Name": "Belgien",
     "FlagUrl": "images/flags/belgium.png",
-    "Stage": 6
+    "Stage": 7
   },
   {
     "Name": "Brasilien",
     "FlagUrl": "images/flags/brazil.png",
-    "Stage": 6
+    "Stage": 7
   },
   {
     "Name": "Colombia",
@@ -72,12 +72,12 @@
   {
     "Name": "Japan",
     "FlagUrl": "images/flags/japan.png",
-    "Stage": 6
+    "Stage": 3
   },
   {
     "Name": "Mexiko",
     "FlagUrl": "images/flags/mexico.png",
-    "Stage": 6
+    "Stage": 3
   },
   {
     "Name": "Marocko",
@@ -142,12 +142,12 @@
   {
     "Name": "Sverige",
     "FlagUrl": "images/flags/sweden.png",
-    "Stage": 6
+    "Stage": 7
   },
   {
     "Name": "Schweiz",
     "FlagUrl": "images/flags/switzerland.png",
-    "Stage": 6
+    "Stage": 3
   },
   {
     "Name": "Tunisien",
