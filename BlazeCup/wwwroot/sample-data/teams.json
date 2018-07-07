@@ -12,12 +12,12 @@
   {
     "Name": "Belgien",
     "FlagUrl": "images/flags/belgium.png",
-    "Stage": 7
+    "Stage": 8
   },
   {
     "Name": "Brasilien",
     "FlagUrl": "images/flags/brazil.png",
-    "Stage": 7
+    "Stage": 2
   },
   {
     "Name": "Colombia",
@@ -52,7 +52,7 @@
   {
     "Name": "Frankrike",
     "FlagUrl": "images/flags/france.png",
-    "Stage": 7
+    "Stage": 8
   },
   {
     "Name": "Tyskland",
@@ -157,6 +157,6 @@
   {
     "Name": "Uruguay",
     "FlagUrl": "images/flags/uruguay.png",
-    "Stage": 7
+    "Stage": 2
   }
 ]
