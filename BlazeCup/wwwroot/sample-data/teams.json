@@ -32,7 +32,7 @@
   {
     "Name": "Kroatien",
     "FlagUrl": "images/flags/croatia.png",
-    "Stage": 7
+    "Stage": 8
   },
   {
     "Name": "Danmark",
@@ -47,7 +47,7 @@
   {
     "Name": "England",
     "FlagUrl": "images/flags/england.png",
-    "Stage": 7
+    "Stage": 8
   },
   {
     "Name": "Frankrike",
@@ -112,7 +112,7 @@
   {
     "Name": "Ryssland",
     "FlagUrl": "images/flags/russia.png",
-    "Stage": 7
+    "Stage": 2
   },
   {
     "Name": "Saudiarabien",
@@ -142,7 +142,7 @@
   {
     "Name": "Sverige",
     "FlagUrl": "images/flags/sweden.png",
-    "Stage": 7
+    "Stage": 2
   },
   {
     "Name": "Schweiz",
