@@ -92,7 +92,7 @@ namespace BlazeCup.Models
         public string ActualTopScoringTeam { get; set; }
         public string ActualTopScoringPlayerTeam { get; set; }
 
-        public int Score
+        public int GroupScore
         {
             get
             {
@@ -109,11 +109,21 @@ namespace BlazeCup.Models
                     }
                 }
 
+                return score;
+            }
+        }
+
+        public int Score
+        {
+            get
+            {
+                var score = GroupScore;
+
                 if (ActualSecondRounders != null && ActualSecondRounders.Any())
                 {
                     score += Scoring.ScoreSecondRound(SecondRounders, ActualSecondRounders);
                 }
-
+                
                 if (ActualQuarterfinalists != null && ActualQuarterfinalists.Any())
                 {
                     score += Scoring.ScoreQuarterFinal(QuarterFinalists, ActualQuarterfinalists);

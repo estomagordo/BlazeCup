@@ -75,10 +75,10 @@ else
         Teams = await Http.GetJsonAsync<List<Team>>("/sample-data/Teams.json");
         Groups = await Http.GetJsonAsync<List<Group>>("/sample-data/groups.json");
 
-        var actualSecondRounders = Teams.Where(t => t.Stage >= TeamStage.ThroughGroup).Select(t => t.Name).ToList();
-        var actualQuarterFinalists = Teams.Where(t => t.Stage >= TeamStage.Through16).Select(t => t.Name).ToList();
-        var actualSemiFinalists = Teams.Where(t => t.Stage >= TeamStage.ThroughQuarter).Select(t => t.Name).ToList();
-        var actualFinalists = Teams.Where(t => t.Stage >= TeamStage.ThroughSemi).Select(t => t.Name).ToList();
+        var actualSecondRounders = Teams.Where(t => t.Stage >= TeamStage.ThroughGroup || t.Stage <= TeamStage.Out16).Select(t => t.Name).ToList();
+        var actualQuarterFinalists = Teams.Where(t => t.Stage >= TeamStage.Through16 || t.Stage <= TeamStage.OutQuarter).Select(t => t.Name).ToList();
+        var actualSemiFinalists = Teams.Where(t => t.Stage >= TeamStage.ThroughQuarter || t.Stage <= TeamStage.OutSemi).Select(t => t.Name).ToList();
+        var actualFinalists = Teams.Where(t => t.Stage >= TeamStage.ThroughSemi || t.Stage <= TeamStage.RunnersUp).Select(t => t.Name).ToList();
         var actualChampion = Teams.Where(t => t.Stage == TeamStage.Champions)?.Select(t => t.Name).FirstOrDefault();
 
         Groups.ForEach(g =>
