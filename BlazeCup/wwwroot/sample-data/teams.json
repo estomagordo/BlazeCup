@@ -32,7 +32,7 @@
   {
     "Name": "Kroatien",
     "FlagUrl": "images/flags/croatia.png",
-    "Stage": 9
+    "Stage": 0
   },
   {
     "Name": "Danmark",
@@ -52,7 +52,7 @@
   {
     "Name": "Frankrike",
     "FlagUrl": "images/flags/france.png",
-    "Stage": 9
+    "Stage": 10
   },
   {
     "Name": "Tyskland",

@@ -139,6 +139,8 @@ else
             s.ActualSemifinalists = actualSemiFinalists;
             s.ActualFinalists = actualFinalists;
             s.ActualChampion = actualChampion;
+            s.ActualTopScoringTeam = "Belgien";
+            s.ActualTopScoringPlayerTeam = "England";
         });
 
         Submissions = Submissions.OrderBy(s => s.Score * -1).ThenBy(s => s.Name).ToList();
